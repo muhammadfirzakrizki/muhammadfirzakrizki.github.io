@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="nord">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firzak | Mobile Dev</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap');
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-base-200 min-h-screen flex items-center justify-center p-6">
+
+    <div
+        class="card w-full max-w-[400px] bg-base-100 shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-base-300 rounded-[2.5rem] overflow-hidden">
+
+        <div class="h-32 bg-gradient-to-br from-primary to-secondary relative">
+            <div class="absolute -bottom-10 left-1/2 -translate-x-1/2">
+                <div class="avatar placeholder">
+                    <div class="bg-neutral text-neutral-content rounded-3xl w-24 h-24 shadow-2xl ring-4 ring-base-100">
+                        <span class="text-3xl font-black">FR</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body items-center text-center pt-14 px-8 pb-10">
+            <h1 class="text-2xl font-black tracking-tighter uppercase">M. Firzak Rizki</h1>
+            <div class="text-primary font-bold text-[10px] tracking-[0.3em] uppercase mb-4 opacity-80">Flutter Developer
+            </div>
+
+            <p class="text-sm leading-relaxed opacity-70 mb-8">
+                Fokus membangun pengalaman mobile yang mulus dengan <b>Dart & Flutter</b>. Mengutamakan kode yang bersih
+                dan UI yang responsif.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-2 mb-8">
+                <span class="badge badge-neutral badge-md py-3 px-4 font-bold rounded-lg">FLUTTER</span>
+                <span class="badge badge-neutral badge-md py-3 px-4 font-bold rounded-lg">DART</span>
+                <span class="badge badge-neutral badge-md py-3 px-4 font-bold rounded-lg">GIT</span>
+            </div>
+
+            <div
+                class="w-full bg-base-200/50 rounded-2xl p-5 border border-base-300/50 group hover:border-primary transition-all duration-300">
+                <div class="flex justify-between items-center mb-3">
+                    <span class="text-[10px] font-black opacity-40 uppercase tracking-widest">Ongoing Build</span>
+                    <span class="loading loading-ring loading-xs text-primary"></span>
+                </div>
+                <div class="text-left">
+                    <div class="text-xs font-bold mb-1 italic">"Learning & Building..."</div>
+                    <div class="text-[10px] opacity-50">Menyiapkan proyek Flutter perdana di GitHub.</div>
+                </div>
+            </div>
+
+            <div class="card-actions w-full mt-8 flex flex-col gap-3">
+                <a href="https://github.com/muhammadfirzakrizki"
+                    class="btn btn-primary btn-block rounded-xl text-white font-bold shadow-lg shadow-primary/20 transition-all hover:scale-[1.02]">
+                    VIEW GITHUB
+                </a>
+                <a href="#" class="btn btn-ghost btn-sm opacity-40 hover:opacity-100 transition-opacity">
+                    LINKEDIN
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed bottom-6 flex items-center gap-2 text-[10px] font-bold opacity-30 tracking-widest uppercase">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+        </svg>
+        Bogor, ID
+    </div>
+
+</body>
+
+</html>
