@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Firzak | Mobile Dev</title>
+    <title>Firzak | Mobile Dev Portfolio</title>
 
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -18,92 +18,112 @@
     </style>
 </head>
 
-<body class="bg-base-200 min-h-screen flex items-center justify-center p-6">
+<body class="bg-base-200 min-h-screen p-6 md:p-12">
 
-    <div
-        class="card w-full max-w-[400px] bg-base-100 shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-base-300 rounded-[2.5rem] overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <div class="lg:col-span-4 space-y-6">
+                <div class="card bg-base-100 shadow-xl border border-base-300 rounded-[2.5rem] overflow-hidden">
+                    <div class="h-32 bg-gradient-to-br from-primary to-secondary relative">
+                        <div class="absolute -bottom-10 left-10">
+                            <div class="avatar placeholder">
+                                <div class="bg-neutral text-neutral-content rounded-3xl w-24 h-24 shadow-2xl ring-4 ring-base-100">
+                                    <span class="text-3xl font-black">FR</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-body pt-14 px-10 pb-10">
+                        <h1 class="text-3xl font-black tracking-tighter uppercase">M. Firzak Rizki</h1>
+                        <div class="text-primary font-bold text-xs tracking-[0.3em] uppercase mb-4 opacity-80">Flutter Developer</div>
+                        
+                        <p class="text-sm leading-relaxed opacity-70 mb-8">
+                            Fokus membangun pengalaman mobile yang mulus dengan <b>Dart & Flutter</b>. Mengutamakan kode yang bersih dan UI yang responsif.
+                        </p>
 
-        <div class="h-32 bg-gradient-to-br from-primary to-secondary relative">
-            <div class="absolute -bottom-10 left-1/2 -translate-x-1/2">
-                <div class="avatar placeholder">
-                    <div class="bg-neutral text-neutral-content rounded-3xl w-24 h-24 shadow-2xl ring-4 ring-base-100">
-                        <span class="text-3xl font-black">FR</span>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="badge badge-neutral badge-md py-3 px-4 font-bold rounded-lg">FLUTTER</span>
+                            <span class="badge badge-neutral badge-md py-3 px-4 font-bold rounded-lg">DART</span>
+                            <span class="badge badge-neutral badge-md py-3 px-4 font-bold rounded-lg">GIT</span>
+                            <span class="badge badge-neutral badge-md py-3 px-4 font-bold rounded-lg">LINUX</span>
+                        </div>
+
+                        <div class="flex flex-col gap-3">
+                            <a href="https://github.com/muhammadfirzakrizki" class="btn btn-primary rounded-xl text-white font-bold shadow-lg shadow-primary/20">
+                                VIEW GITHUB
+                            </a>
+                            <a href="#" class="btn btn-outline border-base-300 rounded-xl font-bold">
+                                LINKEDIN
+                            </a>
+                        </div>
                     </div>
                 </div>
+
+                <div class="hidden lg:flex items-center gap-2 text-[10px] font-bold opacity-30 tracking-widest uppercase pl-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                    </svg>
+                    Bogor, ID
+                </div>
+            </div>
+
+            <div class="lg:col-span-8 space-y-8">
+                
+                <div class="flex justify-between items-end border-b border-base-300 pb-4">
+                    <div>
+                        <h2 class="text-4xl font-black tracking-tighter uppercase">Featured Projects</h2>
+                        <p class="opacity-50 text-sm">Beberapa karya pilihan yang telah dikembangkan.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <div class="card bg-base-100 border border-primary/20 hover:border-primary transition-all duration-300 shadow-sm hover:shadow-xl rounded-[2rem]">
+                        <div class="card-body p-8">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="p-3 bg-primary/10 rounded-2xl">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+                                </div>
+                                <div class="badge badge-primary font-bold">FLUTTER</div>
+                            </div>
+                            <h3 class="text-xl font-black mb-2">ICT IPB Flutter Demo</h3>
+                            <p class="text-sm opacity-60 mb-6 leading-relaxed">Implementasi komponen mobile dan integrasi sistem untuk kebutuhan ICT lingkungan kampus.</p>
+                            <div class="card-actions justify-end">
+                                <a href="https://github.com/muhammadfirzakrizki/ict-ipb-flutter-demo" target="_blank" class="btn btn-sm btn-ghost gap-2 font-black text-xs">
+                                    SOURCE CODE 
+                                    <span>→</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card bg-base-100 border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-sm hover:shadow-xl rounded-[2rem]">
+                        <div class="card-body p-8">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="p-3 bg-secondary/10 rounded-2xl">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-secondary"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                </div>
+                                <div class="badge badge-secondary font-bold">DART</div>
+                            </div>
+                            <h3 class="text-xl font-black mb-2">FocusFlow</h3>
+                            <p class="text-sm opacity-60 mb-6 leading-relaxed">Aplikasi manajemen waktu dan produktivitas dengan antarmuka minimalis untuk efisiensi kerja tinggi.</p>
+                            <div class="card-actions justify-end">
+                                <a href="https://github.com/muhammadfirzakrizki/focusflow" target="_blank" class="btn btn-sm btn-ghost gap-2 font-black text-xs text-secondary">
+                                    SOURCE CODE 
+                                    <span>→</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         </div>
 
-        <div class="card-body items-center text-center pt-14 px-8 pb-10">
-            <h1 class="text-2xl font-black tracking-tighter uppercase">M. Firzak Rizki</h1>
-            <div class="text-primary font-bold text-[10px] tracking-[0.3em] uppercase mb-4 opacity-80">Flutter Developer
-            </div>
-
-            <p class="text-sm leading-relaxed opacity-70 mb-8">
-                Fokus membangun pengalaman mobile yang mulus dengan <b>Dart & Flutter</b>. Mengutamakan kode yang bersih
-                dan UI yang responsif.
-            </p>
-
-            <div class="flex flex-wrap justify-center gap-2 mb-8">
-                <span class="badge badge-neutral badge-md py-3 px-4 font-bold rounded-lg">FLUTTER</span>
-                <span class="badge badge-neutral badge-md py-3 px-4 font-bold rounded-lg">DART</span>
-                <span class="badge badge-neutral badge-md py-3 px-4 font-bold rounded-lg">GIT</span>
-            </div>
-
-            <div class="w-full flex flex-col gap-4">
-                <div
-                    class="bg-base-200/50 rounded-2xl p-5 border border-primary/30 group hover:border-primary transition-all duration-300">
-                    <div class="flex justify-between items-center mb-3">
-                        <span class="text-[10px] font-black text-primary uppercase tracking-widest">Featured
-                            Project</span>
-                        <div class="badge badge-primary badge-xs">Flutter</div>
-                    </div>
-                    <div class="text-left">
-                        <div class="text-sm font-bold mb-1">ICT IPB Flutter Demo</div>
-                        <div class="text-[11px] opacity-60 mb-4">Implementasi komponen mobile dan integrasi sistem untuk
-                            kebutuhan ICT.</div>
-                        <a href="https://github.com/muhammadfirzakrizki/ict-ipb-flutter-demo" target="_blank"
-                            class="btn btn-xs btn-outline btn-primary rounded-lg uppercase text-[9px] font-black">
-                            View Source
-                        </a>
-                    </div>
-                </div>
-
-                <div
-                    class="bg-base-200/50 rounded-2xl p-5 border border-secondary/30 group hover:border-secondary transition-all duration-300">
-                    <div class="flex justify-between items-center mb-3">
-                        <span class="text-[10px] font-black text-secondary uppercase tracking-widest">Productivity
-                            App</span>
-                        <div class="badge badge-secondary badge-xs">Flutter</div>
-                    </div>
-                    <div class="text-left">
-                        <div class="text-sm font-bold mb-1">FocusFlow</div>
-                        <div class="text-[11px] opacity-60 mb-4">Aplikasi manajemen waktu dan produktivitas dengan
-                            antarmuka minimalis untuk efisiensi kerja.</div>
-                        <a href="https://github.com/muhammadfirzakrizki/focusflow" target="_blank"
-                            class="btn btn-xs btn-outline btn-secondary rounded-lg uppercase text-[9px] font-black">
-                            View Source
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-actions w-full mt-8 flex flex-col gap-3">
-                <a href="https://github.com/muhammadfirzakrizki"
-                    class="btn btn-primary btn-block rounded-xl text-white font-bold shadow-lg shadow-primary/20 transition-all hover:scale-[1.02]">
-                    VIEW GITHUB
-                </a>
-                <a href="#" class="btn btn-ghost btn-sm opacity-40 hover:opacity-100 transition-opacity">
-                    LINKEDIN
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="fixed bottom-6 flex items-center gap-2 text-[10px] font-bold opacity-30 tracking-widest uppercase">
-        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
-        </svg>
-        Bogor, ID
     </div>
 
 </body>
