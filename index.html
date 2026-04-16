@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Firzak | Mobile Dev Portfolio</title>
 
-    <!-- DaisyUI + Tailwind -->
+    <!-- DaisyUI -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" />
+
+    <!-- Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <!-- Alpine -->
@@ -16,112 +19,162 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 
-    <!-- AOS Animation -->
+    <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
+    <!-- Font -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap');
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
     </style>
+
 </head>
 
-<body class="bg-base-200 min-h-screen p-6 md:p-12"
-    x-data="{
-        dark: false,
-        toggleTheme() {
-            this.dark = !this.dark;
-            document.documentElement.setAttribute('data-theme', this.dark ? 'dark' : 'nord');
+<body class="bg-base-200 min-h-screen p-6 md:p-12" 
+      x-data="{ 
+        dark:false,
+        toggleTheme(){
+            this.dark = !this.dark
+            document.documentElement.setAttribute('data-theme', this.dark ? 'dark' : 'nord')
         },
+
         profile: {
             name: 'M. Firzak Rizki',
             role: 'Flutter Developer',
             location: 'Bogor, ID',
-            bio: 'Fokus membangun pengalaman mobile yang mulus dengan <b>Dart & Flutter</b>.',
-            skills: ['FLUTTER','DART','GIT','LINUX'],
+            bio: 'Fokus membangun pengalaman mobile yang mulus dengan <b>Dart & Flutter</b>. Mengutamakan kode yang bersih dan UI yang responsif.',
+            skills: ['FLUTTER', 'DART', 'GIT', 'LINUX'],
             github: 'https://github.com/muhammadfirzakrizki'
         },
         projects: [
             {
                 title: 'ICT IPB Flutter Demo',
-                desc: 'Implementasi mobile kampus.',
+                desc: 'Implementasi komponen mobile dan integrasi sistem untuk kebutuhan ICT lingkungan kampus.',
                 tech: 'FLUTTER',
-                link: '#',
+                link: 'https://github.com/muhammadfirzakrizki/ict-ipb-flutter-demo',
                 color: 'primary',
-                icon: 'fa-mobile-screen'
+                icon: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10'
             },
             {
                 title: 'FocusFlow',
-                desc: 'Aplikasi produktivitas.',
+                desc: 'Aplikasi manajemen waktu dan produktivitas dengan antarmuka minimalis untuk efisiensi kerja tinggi.',
                 tech: 'FLUTTER',
-                link: '#',
+                link: 'https://github.com/muhammadfirzakrizki/focusflow',
                 color: 'secondary',
-                icon: 'fa-clock'
+                icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'
             }
         ]
-    }"
-    x-init="AOS.init({ once: true, duration: 800 })">
+      }"
+      x-init="AOS.init({ duration: 800, once: true })"
+>
+
+    <!-- TOGGLE -->
+    <div class="max-w-7xl mx-auto flex justify-end mb-6">
+        <button @click="toggleTheme()" class="btn btn-sm rounded-xl flex gap-2">
+            <i class="fa-solid" :class="dark ? 'fa-sun' : 'fa-moon'"></i>
+            <span x-text="dark ? 'Light' : 'Dark'"></span>
+        </button>
+    </div>
 
     <div class="max-w-7xl mx-auto">
-
-        <!-- TOGGLE -->
-        <div class="flex justify-end mb-6">
-            <button @click="toggleTheme()" class="btn btn-sm rounded-xl flex gap-2">
-                <i class="fa-solid" :class="dark ? 'fa-sun' : 'fa-moon'"></i>
-                <span x-text="dark ? 'Light' : 'Dark'"></span>
-            </button>
-        </div>
-
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-
+            
             <!-- PROFILE -->
-            <div class="lg:col-span-4" data-aos="fade-right">
-                <div class="card bg-base-100 shadow-xl rounded-[2rem] p-6">
-                    <h1 class="text-2xl font-bold" x-text="profile.name"></h1>
-                    <p class="text-sm opacity-70" x-text="profile.role"></p>
-
-                    <div class="mt-4 flex flex-wrap gap-2">
-                        <template x-for="skill in profile.skills">
-                            <span class="badge flex gap-2">
-                                <i class="fa-solid fa-code"></i>
-                                <span x-text="skill"></span>
-                            </span>
-                        </template>
+            <div class="lg:col-span-4 space-y-6" data-aos="fade-right">
+                <div class="card bg-base-100 shadow-xl border border-base-300 rounded-[2.5rem] overflow-hidden">
+                    
+                    <div class="h-32 bg-gradient-to-br from-primary to-secondary relative">
+                        <div class="absolute -bottom-10 left-10">
+                            <div class="avatar placeholder">
+                                <div class="bg-neutral text-neutral-content rounded-3xl w-24 h-24 shadow-2xl ring-4 ring-base-100">
+                                    <span class="text-3xl font-black">FR</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    
+                    <div class="card-body pt-14 px-10 pb-10">
+                        <h1 class="text-3xl font-black uppercase" x-text="profile.name"></h1>
+                        <div class="text-primary font-bold text-xs tracking-[0.3em] uppercase mb-4 opacity-80" x-text="profile.role"></div>
+                        
+                        <p class="text-sm opacity-70 mb-8" x-html="profile.bio"></p>
 
-                    <div class="mt-4 flex flex-col gap-2">
-                        <a :href="profile.github" target="_blank" class="btn btn-primary flex gap-2">
-                            <i class="fa-brands fa-github"></i> GitHub
-                        </a>
-                        <a href="https://www.linkedin.com/in/muhammadfirzakrizki/" target="_blank" class="btn btn-outline flex gap-2">
-                            <i class="fa-brands fa-linkedin"></i> LinkedIn
-                        </a>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <template x-for="skill in profile.skills">
+                                <span class="badge badge-neutral py-3 px-4 font-bold rounded-lg flex gap-2">
+                                    <i class="fa-solid fa-code"></i>
+                                    <span x-text="skill"></span>
+                                </span>
+                            </template>
+                        </div>
+
+                        <div class="flex flex-col gap-3">
+                            <a :href="profile.github" target="_blank"
+                                class="btn btn-primary flex gap-2 hover:scale-105 transition">
+                                <i class="fa-brands fa-github"></i> VIEW GITHUB
+                            </a>
+
+                            <a href="https://www.linkedin.com/in/muhammadfirzakrizki/" target="_blank"
+                                class="btn btn-outline flex gap-2 hover:bg-blue-500 hover:text-white transition">
+                                <i class="fa-brands fa-linkedin"></i> LINKEDIN
+                            </a>
+                        </div>
                     </div>
+                </div>
+
+                <div class="hidden lg:flex items-center gap-2 text-xs opacity-30 uppercase">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span x-text="profile.location"></span>
                 </div>
             </div>
 
-            <!-- PROJECTS -->
-            <div class="lg:col-span-8 space-y-6">
-                <h2 class="text-3xl font-bold" data-aos="fade-up">Projects</h2>
+            <!-- PROJECT -->
+            <div class="lg:col-span-8 space-y-8">
+                
+                <div class="border-b pb-4" data-aos="fade-up">
+                    <h2 class="text-4xl font-black uppercase">Featured Projects</h2>
+                    <p class="opacity-50 text-sm">Beberapa karya pilihan yang telah dikembangkan.</p>
+                </div>
 
                 <div class="grid md:grid-cols-2 gap-6">
                     <template x-for="project in projects">
-                        <div class="card bg-base-100 shadow hover:shadow-xl transition-all"
+                        <div class="card bg-base-100 border shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all"
                              data-aos="zoom-in">
-                            <div class="card-body">
-                                <i class="fa-solid text-2xl" :class="project.icon"></i>
-                                <h3 class="font-bold text-lg" x-text="project.title"></h3>
+
+                            <div class="card-body p-8">
+
+                                <div class="flex justify-between mb-4">
+                                    <div class="p-3 rounded-2xl"
+                                         :class="`bg-${project.color}/10 text-${project.color}`">
+                                        <svg width="24" height="24">
+                                            <path :d="project.icon" stroke="currentColor" fill="none"/>
+                                        </svg>
+                                    </div>
+
+                                    <div class="badge" :class="`badge-${project.color}`" x-text="project.tech"></div>
+                                </div>
+
+                                <h3 class="text-xl font-black" x-text="project.title"></h3>
                                 <p class="text-sm opacity-60" x-text="project.desc"></p>
-                                <a :href="project.link" class="text-primary text-sm mt-2">View →</a>
+
+                                <div class="text-right mt-4">
+                                    <a :href="project.link" target="_blank"
+                                        class="text-sm font-bold"
+                                        :class="`text-${project.color}`">
+                                        SOURCE CODE →
+                                    </a>
+                                </div>
+
                             </div>
                         </div>
                     </template>
                 </div>
+
             </div>
 
         </div>
     </div>
 
 </body>
-
 </html>
