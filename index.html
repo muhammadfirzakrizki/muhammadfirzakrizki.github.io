@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" data-theme="nord">
+<html lang="id" data-theme="corporate">
 
 <head>
     <meta charset="UTF-8">
@@ -45,7 +45,7 @@
         scrolled: false,
         toggleTheme(){
             this.dark = !this.dark
-            document.documentElement.setAttribute('data-theme', this.dark ? 'dark' : 'nord')
+            document.documentElement.setAttribute('data-theme', this.dark ? 'business' : 'corporate')
         },
 
         profile: {
@@ -151,11 +151,8 @@
 
                 <div class="divider divider-horizontal mx-0 hidden md:flex"></div>
 
-                <button
-                    @click="dark = !dark; document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'nord')"
-                    class="btn btn-ghost btn-circle shadow-sm bg-base-100">
-                    <i class="fa-solid transition-transform duration-500"
-                        :class="dark ? 'fa-sun rotate-180' : 'fa-moon'"></i>
+                <button @click="toggleTheme()" class="btn btn-ghost btn-circle shadow-sm bg-base-100">
+                    <i class="fa-solid transition-all duration-500" :class="dark ? 'fa-sun rotate-180' : 'fa-moon'"></i>
                 </button>
             </div>
         </div>
@@ -230,7 +227,7 @@
                     </div>
                     <h2 class="text-5xl md:text-6xl font-black tracking-tighter uppercase leading-none">
                         Selected <br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#5E81AC] to-[#88C0D0]">
+                        <span class="text-primary font-semibold">
                             Works.
                         </span>
                     </h2>

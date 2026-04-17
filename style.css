@@ -26,10 +26,10 @@ html {
 
 /* Glassmorphism Effect */
 .glass-nav {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: var(--fallback-b1, oklch(var(--b1)/0.8));
+    /* Mengambil warna base-100 dengan opasitas 80% */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 [data-theme='dark'] .glass-nav {
@@ -39,14 +39,20 @@ html {
 
 /* marquee */
 @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 .animate-marquee {
     display: flex;
     width: max-content;
-    animation: marquee 40s linear infinite; /* Kecepatan 40s agar santai ala Nord */
+    animation: marquee 40s linear infinite;
+    /* Kecepatan 40s agar santai ala Nord */
 }
 
 /* Berhenti saat hover agar user bisa baca/klik */
