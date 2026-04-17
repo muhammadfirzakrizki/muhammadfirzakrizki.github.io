@@ -4,177 +4,386 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Firzak | Mobile Dev Portfolio</title>
+    <title>Muhammad Firzak Rizki | Mobile Developer Portfolio</title>
+    <meta name="description"
+        content="Specialized Flutter Developer focused on clean architecture and high-performance mobile applications.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Muhammad Firzak Rizki - Mobile Developer">
+    <meta property="og:description" content="Turning complex ideas into seamless mobile experiences.">
+    <meta property="og:image" content="link-ke-foto-preview-kamu.png">
+
+
+    <link rel="stylesheet" href="style.css" />
+    <!--  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@500&display=swap"
+        rel="stylesheet">
 
     <!-- DaisyUI -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" />
-
-    <!-- Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
 
-    <!-- Alpine -->
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
-
-    <!-- AOS -->
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
-    <!-- Font -->
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-    </style>
 
 </head>
 
-<body class="bg-base-200 min-h-screen p-6 md:p-12" 
-      x-data="{ 
+<body class="bg-base-200 min-h-screen" x-data="{ 
         dark:false,
+        scrolled: false,
         toggleTheme(){
             this.dark = !this.dark
             document.documentElement.setAttribute('data-theme', this.dark ? 'dark' : 'nord')
         },
 
         profile: {
-            name: 'M. Firzak Rizki',
-            role: 'Flutter Developer',
-            location: 'Bogor, ID',
-            bio: 'Fokus membangun pengalaman mobile yang mulus dengan <b>Dart & Flutter</b>. Mengutamakan kode yang bersih dan UI yang responsif.',
-            skills: ['FLUTTER', 'DART', 'GIT', 'LINUX'],
+            name: 'Muhammad Firzak Rizki',
+            role: 'Specialized Flutter Developer',
+            location: 'Bogor, Indonesia',
+            bio: 'Crafting <span class=text-primary font-bold>high-performance</span> mobile applications with Clean Architecture and a focus on seamless user experiences.',
+            skills: ['FLUTTER', 'DART', 'CLEAN ARCHITECTURE', 'GIT', 'REST API', 'LINUX'],
             github: 'https://github.com/muhammadfirzakrizki'
         },
+
         projects: [
             {
                 title: 'ICT IPB Flutter Demo',
-                desc: 'Implementasi komponen mobile dan integrasi sistem untuk kebutuhan ICT lingkungan kampus.',
-                tech: 'FLUTTER',
+                desc: 'A mobile component integration system developed for the university ICT ecosystem. Focused on high scalability and UI module efficiency.',
+                tech: 'FLUTTER / DART',
                 link: 'https://github.com/muhammadfirzakrizki/ict-ipb-flutter-demo',
                 color: 'primary',
-                icon: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10'
+                icon: 'fa-solid fa-shield-halved' 
             },
             {
                 title: 'FocusFlow',
-                desc: 'Aplikasi manajemen waktu dan produktivitas dengan antarmuka minimalis untuk efisiensi kerja tinggi.',
-                tech: 'FLUTTER',
+                desc: 'A minimalist productivity management solution designed to optimize daily user workflows through an intuitive interface.',
+                tech: 'FLUTTER / DART',
                 link: 'https://github.com/muhammadfirzakrizki/focusflow',
                 color: 'secondary',
-                icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'
+                icon: 'fa-solid fa-stopwatch-20' 
+            }
+        ],
+
+        skills: [
+            {
+                name: 'Flutter',
+                desc: 'Advanced UI & State Management',
+                icon: 'fa-brands fa-flutter',
+                color: '#02569B'
+            },
+            {
+                name: 'Dart',
+                desc: 'High-Performance Programming',
+                icon: 'fa-solid fa-code', 
+                color: '#0175C2'
+            },
+            {
+                name: 'Android',
+                desc: 'Native Integration & SDK',
+                icon: 'fa-brands fa-android',
+                color: '#3DDC84'
+            },
+            {
+                name: 'Firebase',
+                desc: 'Backend as a Service (BaaS)',
+                icon: 'fa-solid fa-fire',
+                color: '#FFCA28'
+            },
+            {
+                name: 'REST API',
+                desc: 'Scalable System Integration',
+                icon: 'fa-solid fa-cloud-arrow-down',
+                color: '#5E81AC'
+            },
+            {
+                name: 'Linux',
+                desc: 'Server & Env Management',
+                icon: 'fa-brands fa-linux',
+                color: '#333333'
+            },
+            {
+                name: 'Git Control',
+                desc: 'Collaborative Versioning',
+                icon: 'fa-brands fa-git-alt',
+                color: '#F05032'
+            },
+            {
+                name: 'Clean Code',
+                desc: 'SOLID & Clean Architecture',
+                icon: 'fa-solid fa-terminal',
+                color: '#00599C'
             }
         ]
-      }"
-      x-init="AOS.init({ duration: 800, once: true })"
->
+      }" @scroll.window="scrolled = (window.pageYOffset > 20) ? true : false"
+    x-init="AOS.init({ duration: 800, once: true })">
 
-    <!-- TOGGLE -->
-    <div class="max-w-7xl mx-auto flex justify-end mb-6">
-        <button @click="toggleTheme()" class="btn btn-sm rounded-xl flex gap-2">
-            <i class="fa-solid" :class="dark ? 'fa-sun' : 'fa-moon'"></i>
-            <span x-text="dark ? 'Light' : 'Dark'"></span>
-        </button>
-    </div>
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300"
+        :class="scrolled ? 'glass-nav py-3 shadow-lg' : 'bg-transparent py-6'">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
 
-    <div class="max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            
-            <!-- PROFILE -->
-            <div class="lg:col-span-4 space-y-6" data-aos="fade-right">
-                <div class="card bg-base-100 shadow-xl border border-base-300 rounded-[2.5rem] overflow-hidden">
-                    
-                    <div class="h-32 bg-gradient-to-br from-primary to-secondary relative">
-                        <div class="absolute -bottom-10 left-10">
-                            <div class="avatar placeholder">
-                                <div class="bg-neutral text-neutral-content rounded-3xl w-24 h-24 shadow-2xl ring-4 ring-base-100">
-                                    <span class="text-3xl font-black">FR</span>
+            <div class="flex items-center gap-2">
+                <div
+                    class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-primary-content font-black shadow-lg">
+                    F
+                </div>
+                <span class="font-black text-xl tracking-tighter hidden sm:block">FIRZAK<span
+                        class="text-primary">.</span></span>
+            </div>
+
+            <div class="flex items-center gap-2 md:gap-8">
+                <ul class="hidden md:flex gap-6 text-sm font-bold opacity-60 uppercase tracking-widest">
+                    <li><a href="#about" class="hover:text-primary transition">About</a></li>
+                    <li><a href="#tech" class="hover:text-primary transition">Tech</a></li>
+                    <li><a href="#contact" class="hover:text-primary transition">Contact</a></li>
+                </ul>
+
+                <div class="divider divider-horizontal mx-0 hidden md:flex"></div>
+
+                <button
+                    @click="dark = !dark; document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'nord')"
+                    class="btn btn-ghost btn-circle shadow-sm bg-base-100">
+                    <i class="fa-solid transition-transform duration-500"
+                        :class="dark ? 'fa-sun rotate-180' : 'fa-moon'"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div id="about" class="h-24"></div>
+
+    <main class="max-w-7xl mx-auto px-6 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+            <aside class="lg:col-span-4">
+                <div class="lg:sticky lg:top-28 space-y-6" data-aos="fade-right">
+                    <div class="card bg-base-100 shadow-2xl border border-base-300 rounded-[2.5rem] overflow-hidden">
+                        <div class="h-32 bg-gradient-to-tr from-primary/80 to-secondary/80 relative">
+                            <div class="absolute -bottom-12 left-10">
+                                <div class="avatar placeholder">
+                                    <div
+                                        class="bg-neutral text-neutral-content rounded-[2rem] w-24 h-24 shadow-2xl ring-8 ring-base-100">
+                                        <span class="text-3xl font-black">FR</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="card-body pt-14 px-10 pb-10">
-                        <h1 class="text-3xl font-black uppercase" x-text="profile.name"></h1>
-                        <div class="text-primary font-bold text-xs tracking-[0.3em] uppercase mb-4 opacity-80" x-text="profile.role"></div>
-                        
-                        <p class="text-sm opacity-70 mb-8" x-html="profile.bio"></p>
 
-                        <div class="flex flex-wrap gap-2 mb-8">
-                            <template x-for="skill in profile.skills">
-                                <span class="badge badge-neutral py-3 px-4 font-bold rounded-lg flex gap-2">
-                                    <i class="fa-solid fa-code"></i>
-                                    <span x-text="skill"></span>
+                        <div class="card-body pt-16 px-10 pb-10">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span class="relative flex h-2 w-2">
+                                    <span
+                                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-2 w-2 bg-success"></span>
                                 </span>
-                            </template>
+                                <span class="text-[10px] font-bold opacity-50 uppercase tracking-[0.2em]">Ready to
+                                    Collaborate</span>
+                            </div>
+
+                            <h1 class="text-4xl font-black tracking-tighter leading-none mb-2" x-text="profile.name">
+                            </h1>
+                            <p class="mono text-primary text-xs font-bold tracking-widest uppercase mb-6"
+                                x-text="profile.role"></p>
+
+                            <p class="text-sm leading-relaxed opacity-70 mb-8" x-html="profile.bio"></p>
+
+                            <div class="grid grid-cols-2 gap-3">
+                                <a :href="profile.github" target="_blank" rel="noopener"
+                                    class="btn btn-primary rounded-2xl shadow-lg shadow-primary/20 hover:scale-105 transition-all">
+                                    <i class="fa-brands fa-github text-lg"></i>
+                                </a>
+                                <a href="https://linkedin.com/in/muhammadfirzakrizki" target="_blank" rel="noopener"
+                                    class="btn btn-outline rounded-2xl border-base-300 hover:bg-blue-600 hover:text-white transition-all">
+                                    <i class="fa-brands fa-linkedin text-lg"></i>
+                                </a>
+                            </div>
                         </div>
 
-                        <div class="flex flex-col gap-3">
-                            <a :href="profile.github" target="_blank"
-                                class="btn btn-primary flex gap-2 hover:scale-105 transition">
-                                <i class="fa-brands fa-github"></i> VIEW GITHUB
-                            </a>
-
-                            <a href="https://www.linkedin.com/in/muhammadfirzakrizki/" target="_blank"
-                                class="btn btn-outline flex gap-2 hover:bg-blue-500 hover:text-white transition">
-                                <i class="fa-brands fa-linkedin"></i> LINKEDIN
-                            </a>
+                        <div
+                            class="flex items-center justify-center gap-2 text-[10px] opacity-30 font-bold uppercase tracking-widest mb-6">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span x-text="profile.location"></span>
                         </div>
                     </div>
+
+
+                </div>
+            </aside>
+
+            <section class="lg:col-span-8 space-y-10">
+
+                <div data-aos="fade-up">
+                    <div class="flex items-center gap-4 mb-2">
+                        <div class="h-[2px] w-12 bg-primary/30"></div>
+                        <span class="mono text-primary text-xs font-bold tracking-[0.3em] uppercase">Showcase</span>
+                    </div>
+                    <h2 class="text-5xl md:text-6xl font-black tracking-tighter uppercase leading-none">
+                        Selected <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#5E81AC] to-[#88C0D0]">
+                            Works.
+                        </span>
+                    </h2>
                 </div>
 
-                <div class="hidden lg:flex items-center gap-2 text-xs opacity-30 uppercase">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span x-text="profile.location"></span>
-                </div>
-            </div>
-
-            <!-- PROJECT -->
-            <div class="lg:col-span-8 space-y-8">
-                
-                <div class="border-b pb-4" data-aos="fade-up">
-                    <h2 class="text-4xl font-black uppercase">Featured Projects</h2>
-                    <p class="opacity-50 text-sm">Beberapa karya pilihan yang telah dikembangkan.</p>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-6">
+                <div class="grid md:grid-cols-2 gap-8">
                     <template x-for="project in projects">
-                        <div class="card bg-base-100 border shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all"
-                             data-aos="zoom-in">
+                        <div class="card bg-base-100 border border-base-300 shadow-sm hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 rounded-[2.5rem] group overflow-hidden"
+                            data-aos="zoom-in-up">
 
-                            <div class="card-body p-8">
+                            <div class="card-body relative">
+                                <div
+                                    class="absolute -top-10 -right-10 w-32 h-32 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors">
+                                </div>
 
-                                <div class="flex justify-between mb-4">
-                                    <div class="p-3 rounded-2xl"
-                                         :class="`bg-${project.color}/10 text-${project.color}`">
-                                        <svg width="24" height="24">
-                                            <path :d="project.icon" stroke="currentColor" fill="none"/>
-                                        </svg>
+                                <div class="flex justify-between items-start mb-8 relative z-10">
+                                    <div class="w-14 h-14 rounded-[1.5rem] flex items-center justify-center text-2xl transition-all duration-500 shadow-inner"
+                                        :class="`bg-${project.color}/10 text-${project.color} group-hover:bg-${project.color} group-hover:text-white group-hover:shadow-lg group-hover:shadow-${project.color}/30` ">
+                                        <i :class="project.icon"></i>
                                     </div>
 
-                                    <div class="badge" :class="`badge-${project.color}`" x-text="project.tech"></div>
+                                    <div class="flex flex-col items-end gap-1">
+                                        <span
+                                            class="badge badge-ghost border-base-300 text-[10px] font-bold opacity-50 px-3"
+                                            x-text="project.tech"></span>
+                                        <span class="text-[9px] mono opacity-30 uppercase tracking-tighter">Mobile
+                                            App</span>
+                                    </div>
                                 </div>
 
-                                <h3 class="text-xl font-black" x-text="project.title"></h3>
-                                <p class="text-sm opacity-60" x-text="project.desc"></p>
+                                <div class="relative z-10">
+                                    <h3 class="text-2xl font-black tracking-tight mb-3 group-hover:text-primary transition-colors"
+                                        x-text="project.title"></h3>
+                                    <p class="text-sm opacity-60 leading-relaxed line-clamp-3 mb-6"
+                                        x-text="project.desc"></p>
+                                </div>
 
-                                <div class="text-right mt-4">
-                                    <a :href="project.link" target="_blank"
-                                        class="text-sm font-bold"
+                                <div
+                                    class="card-actions justify-between items-center mt-auto pt-6 border-t border-base-200 relative z-10">
+                                    <div class="flex gap-3">
+                                        <span class="w-2 h-2 rounded-full bg-base-300"></span>
+                                        <span class="w-2 h-2 rounded-full bg-base-300"></span>
+                                        <span class="w-2 h-2 rounded-full bg-base-300"></span>
+                                    </div>
+                                    <a :href="project.link" target="_blank" rel="noopener"
+                                        class="btn btn-ghost btn-sm font-black text-xs tracking-widest px-0 hover:bg-transparent"
                                         :class="`text-${project.color}`">
-                                        SOURCE CODE →
+                                        EXPLORE CODE <i
+                                            class="fa-solid fa-arrow-right-long ml-2 group-hover:translate-x-2 transition-transform"></i>
                                     </a>
                                 </div>
-
                             </div>
                         </div>
                     </template>
                 </div>
+            </section>
 
-            </div>
+            <section id="tech" class="lg:col-span-12">
+                <div class="mt-20 space-y-10" data-aos="fade-up">
+                    <div class="flex items-center gap-4">
+                        <h2 class="text-3xl font-black uppercase tracking-tighter">Technical <span
+                                class="text-primary">Arsenal</span></h2>
+                        <div class="h-[1px] flex-1 bg-base-300"></div>
+                    </div>
+
+                    <div class="relative overflow-hidden mask-fade py-4">
+                        <div class="animate-marquee flex gap-6">
+
+                            <template x-for="skill in skills">
+                                <div
+                                    class="w-64 flex-none p-6 bg-base-100 border border-base-300 rounded-[2rem] hover:border-primary/50 transition-all group shadow-sm">
+                                    <div class="flex items-center gap-4">
+                                        <div
+                                            class="w-12 h-12 flex items-center justify-center rounded-2xl bg-base-200 group-hover:bg-white transition-colors">
+                                            <i :class="skill.icon" class="text-2xl"
+                                                :style="`color: ${skill.color}`"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-xs tracking-widest uppercase" x-text="skill.name">
+                                            </h4>
+                                            <p class="text-[9px] opacity-50 italic" x-text="skill.desc"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+
+                            <template x-for="skill in skills">
+                                <div
+                                    class="w-64 flex-none p-6 bg-base-100 border border-base-300 rounded-[2rem] hover:border-primary/50 transition-all group shadow-sm">
+                                    <div class="flex items-center gap-4">
+                                        <div
+                                            class="w-12 h-12 flex items-center justify-center rounded-2xl bg-base-200 group-hover:bg-white transition-colors">
+                                            <i :class="skill.icon" class="text-2xl"
+                                                :style="`color: ${skill.color}`"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-xs tracking-widest uppercase" x-text="skill.name">
+                                            </h4>
+                                            <p class="text-[9px] opacity-50 italic" x-text="skill.desc"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
 
         </div>
-    </div>
+    </main>
+
+    <footer id="contact" class="border-t border-base-300 mt-32 py-16 bg-base-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-5xl font-black tracking-tighter uppercase mb-6 leading-none">
+                        Let's Build <br> <span class="text-primary">Something Great.</span>
+                    </h2>
+                    <p class="opacity-60 text-sm max-w-sm">
+                        Open for collaboration on high-performance mobile applications and clean architecture
+                        consulting.
+                    </p>
+                </div>
+
+                <div class="flex flex-col md:items-end gap-6">
+                    <a href="mailto:firzakrizki@gmail.com"
+                        class="btn btn-primary btn-lg rounded-2xl px-10 font-black tracking-widest shadow-xl shadow-primary/20 hover:scale-105 transition-all">
+                        HIRE ME <i class="fa-solid fa-paper-plane ml-2"></i>
+                    </a>
+
+                    <div class="flex gap-8 text-[10px] font-black uppercase tracking-[0.2em] opacity-40">
+                        <a href="https://github.com/muhammadfirzakrizki"
+                            class="hover:text-primary transition-colors">Github</a>
+                        <a href="https://linkedin.com/in/muhammadfirzakrizki/"
+                            class="hover:text-primary transition-colors">LinkedIn</a>
+                        <a href="#" class="hover:text-primary transition-colors">CV / Resume</a>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="mt-20 pt-8 border-t border-base-200 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="text-[10px] font-bold opacity-30 uppercase tracking-[0.4em]">
+                    © 2026 M. Firzak Rizki • Bogor, Indonesia
+                </div>
+                <div class="mono text-[9px] opacity-30 italic">
+                    Designed with Nord Theme & Tailwind 4
+                </div>
+            </div>
+        </div>
+    </footer>
 
 </body>
+
 </html>

@@ -1,0 +1,61 @@
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.mono {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Smooth Scroll & Custom Scrollbar */
+html {
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: oklch(var(--p));
+    border-radius: 20px;
+}
+
+/* Glassmorphism Effect */
+.glass-nav {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[data-theme='dark'] .glass-nav {
+    background: rgba(15, 23, 42, 0.7);
+}
+
+
+/* marquee */
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 40s linear infinite; /* Kecepatan 40s agar santai ala Nord */
+}
+
+/* Berhenti saat hover agar user bisa baca/klik */
+.animate-marquee:hover {
+    animation-play-state: paused;
+}
+
+/* Efek fade di pinggir agar tidak terpotong kaku */
+.mask-fade {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
