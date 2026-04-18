@@ -165,19 +165,19 @@
 
             <aside class="lg:col-span-4">
                 <div class="lg:sticky lg:top-28 space-y-6" data-aos="fade-right">
-                    <div class="card bg-base-100 shadow-2xl border border-base-300 rounded-[2.5rem] overflow-hidden">
-                        <div class="h-32 bg-gradient-to-tr from-primary/80 to-secondary/80 relative">
-                            <div class="absolute -bottom-12 left-10">
-                                <div class="avatar placeholder">
-                                    <div
-                                        class="bg-neutral text-neutral-content rounded-[2rem] w-24 h-24 shadow-2xl ring-8 ring-base-100">
-                                        <span class="text-3xl font-black">FR</span>
-                                    </div>
+                    <div
+                        class="card bg-base-100 shadow-2xl border border-base-300 rounded-[2.5rem] overflow-hidden pt-12 pb-12">
+
+                        <div class="flex justify-center w-full px-10">
+                            <div class="avatar">
+                                <div class="w-full h-full overflow-hidden bg-white">
+                                    <img src="assets/images/foto.png" alt="Avatar Profile"
+                                        class="object-cover w-full h-full rounded-[2.8rem]" />
                                 </div>
                             </div>
                         </div>
 
-                        <div class="card-body pt-16 px-10 pb-10">
+                        <div class="card-body pt-10 px-10 pb-4">
                             <div class="flex items-center gap-2 mb-4">
                                 <span class="relative flex h-2 w-2">
                                     <span
@@ -189,15 +189,18 @@
                             </div>
 
                             <h1 class="text-4xl font-black tracking-tighter leading-none mb-2" x-text="profile.name">
-                            </h1>
+                                Muhammad Firzak Rizki </h1>
                             <p class="mono text-primary text-xs font-bold tracking-widest uppercase mb-6"
-                                x-text="profile.role"></p>
+                                x-text="profile.role"> Specialized Flutter Developer </p>
 
-                            <p class="text-sm leading-relaxed opacity-70 mb-8" x-html="profile.bio"></p>
+                            <p class="text-sm leading-relaxed opacity-70 mb-8" x-html="profile.bio">
+                                Crafting <span class="text-secondary font-semibold">high-performance</span> mobile
+                                applications with Clean Architecture and a focus on seamless user experiences.
+                            </p>
 
                             <div class="grid grid-cols-2 gap-3">
                                 <a :href="profile.github" target="_blank" rel="noopener"
-                                    class="btn btn-primary rounded-2xl shadow-lg shadow-primary/20 hover:scale-105 transition-all">
+                                    class="btn btn-primary rounded-2xl shadow-lg shadow-primary/20 hover:scale-105 transition-all text-white">
                                     <i class="fa-brands fa-github text-lg"></i>
                                 </a>
                                 <a href="https://linkedin.com/in/muhammadfirzakrizki" target="_blank" rel="noopener"
@@ -208,13 +211,11 @@
                         </div>
 
                         <div
-                            class="flex items-center justify-center gap-2 text-[10px] opacity-30 font-bold uppercase tracking-widest mb-6">
+                            class="flex items-center justify-center gap-2 text-[10px] opacity-30 font-bold uppercase tracking-widest mb-4">
                             <i class="fa-solid fa-location-dot"></i>
-                            <span x-text="profile.location"></span>
+                            <span x-text="profile.location"> Bogor, Indonesia </span>
                         </div>
                     </div>
-
-
                 </div>
             </aside>
 
