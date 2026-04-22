@@ -13,16 +13,14 @@
     <meta property="og:description" content="Turning complex ideas into seamless mobile experiences.">
     <meta property="og:image" content="link-ke-foto-preview-kamu.png">
 
-
     <link rel="stylesheet" href="style.css" />
-    <!--  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Google Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap"
         rel="stylesheet">
 
     <!-- DaisyUI -->
@@ -37,10 +35,10 @@
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-
+    <!-- Background effects handled with CSS -->
 </head>
 
-<body class="bg-base-200 min-h-screen" x-data="{ 
+<body class="relative min-h-screen overflow-x-hidden bg-transparent text-base-content antialiased" x-data="{ 
         dark:false,
         scrolled: false,
         toggleTheme(){
@@ -64,7 +62,8 @@
                 tech: 'FLUTTER / DART',
                 link: 'https://github.com/muhammadfirzakrizki/ict-ipb-flutter-demo',
                 color: 'primary',
-                icon: 'fa-solid fa-shield-halved' 
+                accent: '#2563eb',
+                icon: 'fa-solid fa-shield-halved'
             },
             {
                 title: 'FocusFlow',
@@ -72,86 +71,124 @@
                 tech: 'FLUTTER / DART',
                 link: 'https://github.com/muhammadfirzakrizki/focusflow',
                 color: 'secondary',
-                icon: 'fa-solid fa-stopwatch-20' 
+                accent: '#0f766e',
+                icon: 'fa-solid fa-stopwatch-20'
             }
         ],
 
         skills: [
             {
                 name: 'Flutter',
-                desc: 'Advanced UI & State Management',
+                desc: 'UI framework & app foundation',
                 icon: 'fa-brands fa-flutter',
                 color: '#02569B'
             },
             {
                 name: 'Dart',
-                desc: 'High-Performance Programming',
+                desc: 'Language for Flutter apps',
                 icon: 'fa-solid fa-code', 
                 color: '#0175C2'
             },
             {
-                name: 'Android',
-                desc: 'Native Integration & SDK',
-                icon: 'fa-brands fa-android',
-                color: '#3DDC84'
+                name: 'Riverpod',
+                desc: 'Modern state management',
+                icon: 'fa-solid fa-layer-group',
+                color: '#7C3AED'
             },
             {
                 name: 'Firebase',
-                desc: 'Backend as a Service (BaaS)',
-                icon: 'fa-solid fa-fire',
-                color: '#FFCA28'
+                desc: 'Auth, core, and backend',
+                icon: 'fa-solid fa-fire-flame-curved',
+                color: '#FF6F00'
             },
             {
-                name: 'REST API',
-                desc: 'Scalable System Integration',
+                name: 'PowerSync',
+                desc: 'Local-first data sync',
+                icon: 'fa-solid fa-database',
+                color: '#0EA5E9'
+            },
+            {
+                name: 'SQLite',
+                desc: 'Local persistence layer',
+                icon: 'fa-solid fa-table-cells',
+                color: '#64748B'
+            },
+            {
+                name: 'GoRouter',
+                desc: 'Typed navigation flow',
+                icon: 'fa-solid fa-route',
+                color: '#2563EB'
+            },
+            {
+                name: 'HTTP',
+                desc: 'API integration',
                 icon: 'fa-solid fa-cloud-arrow-down',
-                color: '#5E81AC'
+                color: '#14B8A6'
             },
             {
-                name: 'Linux',
-                desc: 'Server & Env Management',
-                icon: 'fa-brands fa-linux',
-                color: '#333333'
+                name: 'SharedPrefs',
+                desc: 'Lightweight settings',
+                icon: 'fa-solid fa-sliders',
+                color: '#8B5CF6'
             },
             {
-                name: 'Git Control',
-                desc: 'Collaborative Versioning',
-                icon: 'fa-brands fa-git-alt',
-                color: '#F05032'
+                name: 'Equatable',
+                desc: 'Clean value equality',
+                icon: 'fa-solid fa-equals',
+                color: '#0F766E'
             },
             {
-                name: 'Clean Code',
-                desc: 'SOLID & Clean Architecture',
-                icon: 'fa-solid fa-terminal',
-                color: '#00599C'
+                name: 'Material 3',
+                desc: 'Design system UI',
+                icon: 'fa-solid fa-swatchbook',
+                color: '#DB2777'
+            },
+            {
+                name: 'Google Fonts',
+                desc: 'Typography system',
+                icon: 'fa-solid fa-font',
+                color: '#111827'
             }
         ]
-      }" @scroll.window="scrolled = (window.pageYOffset > 20) ? true : false"
-    x-init="AOS.init({ duration: 800, once: true })">
+    }" @scroll.window="scrolled = (window.pageYOffset > 20) ? true : false" x-init="
+        AOS.init({ duration: 650, once: true, offset: 90, easing: 'ease-out-cubic' });
+    ">
 
-    <nav class="fixed top-0 w-full z-50 transition-all duration-300"
-        :class="scrolled ? 'glass-nav py-3 shadow-lg' : 'bg-transparent py-6'">
-        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+    <div class="site-bg fixed inset-0 z-0 pointer-events-none" aria-hidden="true"></div>
+    <div class="site-orb site-orb--one fixed inset-0 z-0 pointer-events-none" aria-hidden="true"></div>
+    <div class="site-orb site-orb--two fixed inset-0 z-0 pointer-events-none" aria-hidden="true"></div>
 
-            <div class="flex items-center gap-2">
-                <div class="w-15 h-15 flex items-center justify-center overflow-hidden">
+    <nav class="fixed top-4 left-0 right-0 z-20 px-4 sm:px-6 transition-all duration-300"
+        :class="scrolled ? 'py-0' : 'py-2'">
+        <div class="nav-shell max-w-7xl mx-auto flex items-center justify-between gap-4 px-4 sm:px-5 py-3"
+            :class="scrolled ? 'nav-shell--scrolled' : 'nav-shell--top'">
+
+            <a href="#about" class="nav-brand flex items-center gap-3 min-w-0">
+                <div
+                    class="nav-brand__mark w-11 h-11 shrink-0 rounded-2xl flex items-center justify-center overflow-hidden">
                     <img src="assets/images/logofirzak.png" alt="Firzak Logo" class="w-full h-full object-contain p-1.5"
                         onerror="this.style.display='none'; this.parentElement.innerHTML='F';" />
                 </div>
-                <span class="font-black text-xl tracking-tighter hidden sm:block">FIRZAK<span
-                        class="text-primary">.</span></span>
-            </div>
+                <div class="hidden sm:block min-w-0">
+                    <div class="flex items-center gap-2">
+                        <span class="font-semibold tracking-tight text-base-content">Firzak</span>
+                        <span class="h-1.5 w-1.5 rounded-full bg-primary"></span>
+                    </div>
+                    <p class="text-[10px] uppercase tracking-[0.28em] text-base-content/45">Mobile Developer</p>
+                </div>
+            </a>
 
-            <div class="flex items-center gap-2 md:gap-8">
-                <ul class="hidden md:flex gap-6 text-sm font-bold opacity-60 uppercase tracking-widest">
-                    <li><a href="#about" class="hover:text-primary transition">About</a></li>
-                    <li><a href="#tech" class="hover:text-primary transition">Tech</a></li>
-                    <li><a href="#contact" class="hover:text-primary transition">Contact</a></li>
+            <div class="flex items-center gap-2 md:gap-3">
+                <ul
+                    class="hidden md:flex items-center gap-1 rounded-full border border-base-300 bg-base-100/70 p-1 shadow-sm">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#tech" class="nav-link">Tech</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
 
-                <div class="divider divider-horizontal mx-0 hidden md:flex"></div>
-
-                <button @click="toggleTheme()" class="btn btn-ghost btn-circle shadow-sm bg-base-100">
+                <button @click="toggleTheme()"
+                    class="nav-toggle btn btn-ghost btn-circle border border-base-300 bg-base-100/80 shadow-sm"
+                    aria-label="Toggle theme">
                     <i class="fa-solid transition-all duration-500" :class="dark ? 'fa-sun rotate-180' : 'fa-moon'"></i>
                 </button>
             </div>
@@ -160,60 +197,67 @@
 
     <div id="about" class="h-24"></div>
 
-    <main class="max-w-7xl mx-auto px-6 py-8">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+    <main class="relative z-10 max-w-7xl mx-auto px-6 py-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
 
             <aside class="lg:col-span-4">
                 <div class="lg:sticky lg:top-28 space-y-6" data-aos="fade-right">
-                    <div
-                        class="card bg-base-100 shadow-2xl border border-base-300 rounded-[2.5rem] overflow-hidden pt-12 pb-12">
+                    <div class="aside-shell card bg-base-100 shadow-sm border border-base-300 rounded-3xl overflow-hidden"
+                        data-aos="zoom-in" data-aos-delay="80">
+                        <div class="aside-shell__top px-8 pt-8" data-aos="fade-down" data-aos-delay="120">
+                            <div
+                                class="inline-flex items-center gap-2 rounded-full border border-base-300 bg-base-200/70 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-base-content/55">
+                                <span class="h-1.5 w-1.5 rounded-full bg-primary"></span>
+                                Profile Overview
+                            </div>
+                        </div>
 
-                        <div class="flex justify-center w-full px-10">
+                        <div class="flex justify-center w-full px-10 pt-6" data-aos="fade-up" data-aos-delay="180">
                             <div class="avatar">
                                 <div class="w-full h-full overflow-hidden">
                                     <img src="assets/images/foto.png" alt="Avatar Profile"
-                                        class="object-cover w-full h-full rounded-[2.8rem]" />
+                                        class="object-cover w-full h-full rounded-3xl" />
                                 </div>
                             </div>
                         </div>
 
-                        <div class="card-body pt-10 px-10 pb-4">
-                            <div class="flex items-center gap-2 mb-4">
-                                <span class="relative flex h-2 w-2">
-                                    <span
-                                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
-                                    <span class="relative inline-flex rounded-full h-2 w-2 bg-success"></span>
-                                </span>
-                                <span class="text-[10px] font-bold opacity-50 uppercase tracking-[0.2em]">Ready to
+                        <div class="card-body pt-10 px-10 pb-4" data-aos="fade-up" data-aos-delay="240">
+                            <div class="flex items-center gap-2 mb-4 text-base-content/60">
+                                <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+                                <span class="text-[10px] font-semibold uppercase tracking-[0.2em]">Ready to
                                     Collaborate</span>
                             </div>
 
-                            <h1 class="text-4xl font-black tracking-tighter leading-none mb-2" x-text="profile.name">
+                            <h1 class="text-4xl font-semibold tracking-tight leading-none mb-2 text-base-content"
+                                x-text="profile.name">
                                 Muhammad Firzak Rizki </h1>
-                            <p class="mono text-primary text-xs font-bold tracking-widest uppercase mb-6"
+                            <p class="mono text-primary text-xs font-semibold tracking-[0.2em] uppercase mb-6"
                                 x-text="profile.role"> Specialized Flutter Developer </p>
 
-                            <p class="text-sm leading-relaxed opacity-70 mb-8" x-html="profile.bio">
-                                Crafting <span class="text-secondary font-semibold">high-performance</span> mobile
+                            <p class="text-sm leading-relaxed text-base-content/70 mb-8" x-html="profile.bio">
+                                Crafting <span class="text-base-content font-semibold">high-performance</span> mobile
                                 applications with Clean Architecture and a focus on seamless user experiences.
                             </p>
 
                             <div class="grid grid-cols-2 gap-3">
                                 <a :href="profile.github" target="_blank" rel="noopener"
-                                    class="btn btn-primary rounded-2xl shadow-lg shadow-primary/20 hover:scale-105 transition-all text-white">
+                                    class="btn btn-primary rounded-2xl shadow-none hover:shadow-sm transition-all text-white">
                                     <i class="fa-brands fa-github text-lg"></i>
                                 </a>
                                 <a href="https://linkedin.com/in/muhammadfirzakrizki" target="_blank" rel="noopener"
-                                    class="btn btn-outline rounded-2xl border-base-300 hover:bg-blue-600 hover:text-white transition-all">
+                                    class="btn btn-outline rounded-2xl border-base-300 hover:bg-base-content hover:text-base-100 transition-all">
                                     <i class="fa-brands fa-linkedin text-lg"></i>
                                 </a>
                             </div>
                         </div>
 
-                        <div
-                            class="flex items-center justify-center gap-2 text-[10px] opacity-30 font-bold uppercase tracking-widest mb-4">
-                            <i class="fa-solid fa-location-dot"></i>
-                            <span x-text="profile.location"> Bogor, Indonesia </span>
+                        <div class="aside-shell__bottom px-8 pb-8" data-aos="fade-up" data-aos-delay="300">
+                            <div class="rounded-2xl border border-base-300 bg-base-200/50 p-3">
+                                <div class="text-[9px] font-semibold uppercase tracking-[0.22em] text-base-content/40">
+                                    Based in</div>
+                                <div class="mt-1 text-sm font-semibold text-base-content" x-text="profile.location">
+                                    Kota Bogor, Jawa Barat, Indonesia</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -222,66 +266,91 @@
             <section class="lg:col-span-8 space-y-10">
 
                 <div data-aos="fade-up">
-                    <div class="flex items-center gap-4 mb-2">
-                        <div class="h-[2px] w-12 bg-primary/30"></div>
-                        <span class="mono text-primary text-xs font-bold tracking-[0.3em] uppercase">Showcase</span>
+                    <div class="flex items-center gap-4 mb-3">
+                        <div class="relative h-[2px] w-16">
+                            <div class="absolute inset-0 bg-primary opacity-100"></div>
+                        </div>
+
+                        <span class="font-mono text-primary text-lg font-black tracking-[0.4em] uppercase">
+                            Showcase
+                        </span>
                     </div>
-                    <h2 class="text-5xl md:text-6xl font-black tracking-tighter uppercase leading-none">
+                    <h2
+                        class="text-5xl md:text-6xl font-semibold tracking-tight uppercase leading-none text-base-content">
                         Selected <br>
-                        <span class="text-primary font-semibold">
+                        <span class="text-primary">
                             Works.
                         </span>
                     </h2>
+                    <p class="mt-4 max-w-xl text-sm leading-relaxed text-base-content/65">
+                        A small set of mobile products that show how I think about UI, structure, and real-world use.
+                    </p>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-8">
-                    <template x-for="project in projects">
-                        <div class="card bg-base-100 border border-base-300 shadow-sm hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 rounded-[2.5rem] group overflow-hidden"
-                            data-aos="zoom-in-up">
+                    <template x-for="(project, index) in projects">
+                        <article
+                            class="project-card group relative bg-base-100 border border-base-300 shadow-sm hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 rounded-[2rem] overflow-hidden hover:-translate-y-2"
+                            :style="`--project-accent: ${project.accent}`" data-aos="fade-up"
+                            :data-aos-delay="index * 100">
 
-                            <div class="card-body relative">
-                                <div
-                                    class="absolute -top-10 -right-10 w-32 h-32 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors">
-                                </div>
+                            <div
+                                class="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-primary/5 blur-[80px] transition-opacity duration-500 group-hover:opacity-100 opacity-0">
+                            </div>
 
-                                <div class="flex justify-between items-start mb-8 relative z-10">
-                                    <div class="w-14 h-14 rounded-[1.5rem] flex items-center justify-center text-2xl transition-all duration-500 shadow-inner"
-                                        :class="`bg-${project.color}/10 text-${project.color} group-hover:bg-${project.color} group-hover:text-white group-hover:shadow-lg group-hover:shadow-${project.color}/30` ">
+                            <div class="card-body relative p-7 md:p-8 z-10 flex flex-col h-full">
+                                <div class="flex justify-between items-start mb-8">
+                                    <div
+                                        class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl transition-all duration-500 border border-base-300 bg-base-200 group-hover:bg-primary group-hover:text-primary-content group-hover:scale-110 group-hover:rotate-6 shadow-sm">
                                         <i :class="project.icon"></i>
                                     </div>
 
-                                    <div class="flex flex-col items-end gap-1">
+                                    <div class="flex flex-col items-end gap-2">
                                         <span
-                                            class="badge badge-ghost border-base-300 text-[10px] font-bold opacity-50 px-3"
+                                            class="badge badge-primary badge-outline border-primary/20 text-[10px] font-bold px-3 py-3 uppercase tracking-widest"
                                             x-text="project.tech"></span>
-                                        <span class="text-[9px] mono opacity-30 uppercase tracking-tighter">Mobile
+                                        <span
+                                            class="text-[10px] font-mono text-base-content/40 uppercase tracking-[0.2em]">Mobile
                                             App</span>
                                     </div>
                                 </div>
 
-                                <div class="relative z-10">
-                                    <h3 class="text-2xl font-black tracking-tight mb-3 group-hover:text-primary transition-colors"
+                                <header>
+                                    <h3 class="text-2xl font-bold tracking-tight mb-3 text-base-content group-hover:text-primary transition-colors duration-300"
                                         x-text="project.title"></h3>
-                                    <p class="text-sm opacity-60 leading-relaxed line-clamp-3 mb-6"
+                                    <p class="text-sm text-base-content/60 leading-relaxed line-clamp-3 mb-8"
                                         x-text="project.desc"></p>
-                                </div>
+                                </header>
 
-                                <div
-                                    class="card-actions justify-between items-center mt-auto pt-6 border-t border-base-200 relative z-10">
-                                    <div class="flex gap-3">
-                                        <span class="w-2 h-2 rounded-full bg-base-300"></span>
-                                        <span class="w-2 h-2 rounded-full bg-base-300"></span>
-                                        <span class="w-2 h-2 rounded-full bg-base-300"></span>
+                                <footer class="mt-auto pt-6 flex items-center justify-between relative">
+                                    <div class="absolute top-0 left-0 h-[1px] w-full bg-base-300 overflow-hidden">
+                                        <div
+                                            class="h-full w-full bg-primary translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700">
+                                        </div>
                                     </div>
-                                    <a :href="project.link" target="_blank" rel="noopener"
-                                        class="btn btn-ghost btn-sm font-black text-xs tracking-widest px-0 hover:bg-transparent"
-                                        :class="`text-${project.color}`">
-                                        EXPLORE CODE <i
-                                            class="fa-solid fa-arrow-right-long ml-2 group-hover:translate-x-2 transition-transform"></i>
+
+                                    <div
+                                        class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-base-content/40">
+                                        <span class="h-2 w-2 rounded-full bg-primary animate-pulse"></span>
+                                        <span>Live Project</span>
+                                    </div>
+
+                                    <a :href="project.link" target="_blank"
+                                        class="group/btn inline-flex items-center gap-3 px-1 py-2 font-bold uppercase tracking-[0.2em] text-primary transition-all duration-300">
+                                        <span class="relative text-[11px]">
+                                            Explore Work
+                                            <span
+                                                class="absolute -bottom-1 left-0 h-[2px] w-0 bg-primary transition-all duration-300 group-hover/btn:w-full"></span>
+                                        </span>
+
+                                        <div
+                                            class="flex h-8 w-8 items-center justify-center rounded-full border-2 border-primary transition-all duration-300 group-hover/btn:bg-primary group-hover/btn:text-primary-content">
+                                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                        </div>
                                     </a>
-                                </div>
+                                </footer>
                             </div>
-                        </div>
+                        </article>
                     </template>
                 </div>
             </section>
@@ -289,51 +358,32 @@
             <section id="tech" class="lg:col-span-12">
                 <div class="mt-20 space-y-10" data-aos="fade-up">
                     <div class="flex items-center gap-4">
-                        <h2 class="text-3xl font-black uppercase tracking-tighter">Technical <span
+                        <h2 class="text-3xl font-semibold uppercase tracking-tight text-base-content">Technical <span
                                 class="text-primary">Arsenal</span></h2>
                         <div class="h-[1px] flex-1 bg-base-300"></div>
                     </div>
+                    <p class="max-w-2xl text-sm leading-relaxed text-base-content/65">
+                        Flutter libraries and tooling that show up again and again in my projects.
+                    </p>
 
-                    <div class="relative overflow-hidden mask-fade py-4">
-                        <div class="animate-marquee flex gap-6">
-
-                            <template x-for="skill in skills">
-                                <div
-                                    class="w-64 flex-none p-6 bg-base-100 border border-base-300 rounded-[2rem] hover:border-primary/50 transition-all group shadow-sm">
-                                    <div class="flex items-center gap-4">
-                                        <div
-                                            class="w-12 h-12 flex items-center justify-center rounded-2xl bg-base-200 group-hover:bg-white transition-colors">
-                                            <i :class="skill.icon" class="text-2xl"
-                                                :style="`color: ${skill.color}`"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-bold text-xs tracking-widest uppercase" x-text="skill.name">
-                                            </h4>
-                                            <p class="text-[9px] opacity-50 italic" x-text="skill.desc"></p>
-                                        </div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <template x-for="(skill, index) in skills">
+                            <div class="p-5 bg-base-100 border border-base-300 rounded-2xl shadow-sm hover:shadow-md transition-shadow group"
+                                data-aos="fade-up" :data-aos-delay="index * 70">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="w-11 h-11 flex items-center justify-center rounded-2xl bg-base-200 border border-base-300">
+                                        <i :class="skill.icon" class="text-xl" :style="`color: ${skill.color}`"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-sm tracking-tight text-base-content"
+                                            x-text="skill.name">
+                                        </h4>
+                                        <p class="text-[11px] text-base-content/60" x-text="skill.desc"></p>
                                     </div>
                                 </div>
-                            </template>
-
-                            <template x-for="skill in skills">
-                                <div
-                                    class="w-64 flex-none p-6 bg-base-100 border border-base-300 rounded-[2rem] hover:border-primary/50 transition-all group shadow-sm">
-                                    <div class="flex items-center gap-4">
-                                        <div
-                                            class="w-12 h-12 flex items-center justify-center rounded-2xl bg-base-200 group-hover:bg-white transition-colors">
-                                            <i :class="skill.icon" class="text-2xl"
-                                                :style="`color: ${skill.color}`"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-bold text-xs tracking-widest uppercase" x-text="skill.name">
-                                            </h4>
-                                            <p class="text-[9px] opacity-50 italic" x-text="skill.desc"></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </template>
-
-                        </div>
+                            </div>
+                        </template>
                     </div>
                 </div>
             </section>
@@ -341,47 +391,75 @@
         </div>
     </main>
 
-    <footer id="contact" class="border-t border-base-300 mt-32 py-16 bg-base-100">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-5xl font-black tracking-tighter uppercase mb-6 leading-none">
-                        Let's Build <br> <span class="text-primary">Something Great.</span>
+    <footer id="contact" class="relative z-10 mt-32 border-t border-base-300 bg-base-100/75 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-6 py-16">
+            <div class="grid gap-12 lg:grid-cols-[1.3fr_0.9fr] lg:items-end">
+                <div class="space-y-6" data-aos="fade-right">
+                    <div
+                        class="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.28em] text-base-content/45">
+                        <span class="h-1.5 w-1.5 rounded-full bg-primary"></span>
+                        Available for select projects
+                    </div>
+                    <h2 class="text-5xl font-semibold tracking-tight leading-none text-base-content">
+                        Let's Build <br>
+                        <span class="text-primary">Something Great.</span>
                     </h2>
-                    <p class="opacity-60 text-sm max-w-sm">
-                        Open for collaboration on high-performance mobile applications and clean architecture
-                        consulting.
+                    <p class="max-w-xl text-sm leading-relaxed text-base-content/70">
+                        Open for collaboration on mobile applications, clean architecture, and product-focused Flutter
+                        work.
                     </p>
                 </div>
 
-                <div class="flex flex-col md:items-end gap-6">
-                    <a href="mailto:firzakrizki@gmail.com"
-                        class="btn btn-primary btn-lg rounded-2xl px-10 font-black tracking-widest shadow-xl shadow-primary/20 hover:scale-105 transition-all">
-                        HIRE ME <i class="fa-solid fa-paper-plane ml-2"></i>
-                    </a>
+                <div class="footer-panel rounded-3xl border border-base-300 bg-base-200/60 p-6 md:p-7 shadow-sm"
+                    data-aos="fade-left" data-aos-delay="120">
+                    <div class="flex flex-col gap-5">
+                        <a href="mailto:firzakrizki@gmail.com"
+                            class="btn btn-primary btn-lg rounded-2xl px-8 font-semibold tracking-[0.2em] shadow-none hover:shadow-md transition-all w-full">
+                            HIRE ME <i class="fa-solid fa-paper-plane ml-2"></i>
+                        </a>
 
-                    <div class="flex gap-8 text-[10px] font-black uppercase tracking-[0.2em] opacity-40">
-                        <a href="https://github.com/muhammadfirzakrizki"
-                            class="hover:text-primary transition-colors">Github</a>
-                        <a href="https://linkedin.com/in/muhammadfirzakrizki/"
-                            class="hover:text-primary transition-colors">LinkedIn</a>
-                        <!-- <a href="#" class="hover:text-primary transition-colors">CV / Resume</a> -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                            <a href="https://github.com/muhammadfirzakrizki"
+                                class="footer-chip flex items-center justify-between rounded-2xl border border-base-300 bg-base-100 px-4 py-3 font-medium text-base-content/80 hover:text-base-content transition-colors">
+                                <span>Github</span>
+                                <i class="fa-brands fa-github text-base-content/45"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/muhammadfirzakrizki/"
+                                class="footer-chip flex items-center justify-between rounded-2xl border border-base-300 bg-base-100 px-4 py-3 font-medium text-base-content/80 hover:text-base-content transition-colors">
+                                <span>LinkedIn</span>
+                                <i class="fa-brands fa-linkedin text-base-content/45"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div
-                class="mt-20 pt-8 border-t border-base-200 flex flex-col md:flex-row justify-between items-center gap-4">
-                <div class="text-[10px] font-bold opacity-30 uppercase tracking-[0.4em]">
-                    © <span x-text="new Date().getFullYear()"></span> Muhammad Firzak Rizki • Bogor, Indonesia
+                class="mt-16 pt-8 border-t border-base-300 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                <div
+                    class="flex items-center gap-4 text-[10px] font-semibold uppercase tracking-[0.32em] text-base-content/40">
+                    <span>© <span x-text="new Date().getFullYear()"></span></span>
+                    <span class="hidden sm:inline">Muhammad Firzak Rizki</span>
+                    <span>• Bogor, Indonesia</span>
                 </div>
-                <div class="mono text-[9px] opacity-30 italic">
-                    Designed with Corporate Theme DaisyUI and built with Tailwind CSS, Alpine.js, and AOS for smooth
-                    animations.
+                <div class="mono text-[9px] italic text-base-content/30">
+                    Built with Tailwind CSS, Alpine.js, and AOS for smooth interactions.
                 </div>
             </div>
         </div>
     </footer>
+
+    <button x-cloak x-show="scrolled" x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0 translate-y-3 scale-95"
+        x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+        x-transition:leave="transition ease-in duration-150"
+        x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+        x-transition:leave-end="opacity-0 translate-y-3 scale-95"
+        @click="window.scrollTo({ top: 0, behavior: 'smooth' })" aria-label="Scroll to top"
+        class="fixed bottom-6 right-6 z-30 inline-flex h-14 w-14 items-center justify-center rounded-full border border-primary/20 bg-primary text-primary-content shadow-lg shadow-primary/20 backdrop-blur-md transition-transform duration-200 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 sm:bottom-8 sm:right-8 sm:h-16 sm:w-16">
+        <i class="fa-solid fa-arrow-up text-xl"></i>
+        <span class="sr-only">Scroll to top</span>
+    </button>
 
 </body>
 
