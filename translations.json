@@ -1,0 +1,112 @@
+{
+  "en": {
+    "nav": { "about": "About", "tech": "Tech", "contact": "Contact" },
+    "profile": {
+      "overview": "Profile Overview",
+      "status": "Ready to Collaborate",
+      "role": "Specialized Flutter Developer",
+      "bio": "Building <span class='text-primary font-bold'>resilient</span> and high-performance mobile applications through Clean Architecture and thoughtful UI/UX.",
+      "location": "Bogor, Indonesia"
+    },
+    "sections": {
+      "showcase_sub": "Showcase",
+      "showcase_title_1": "Selected",
+      "showcase_title_2": "Works.",
+      "showcase_desc": "A small set of mobile products that show how I think about UI, structure, and real-world use.",
+      "showcase_footer": "These projects represent a fraction of my work. Each one is built with a focus on maintainability and pixel-perfect execution.",
+      "showcase_btn": "View All Projects",
+      "tech_title": "Technical",
+      "tech_subtitle": "Arsenal",
+      "tech_desc": "Flutter libraries and tooling that show up again and again in my projects.",
+      "tech_footer": "Constant learning is part of my DNA. These are the core technologies that power my current workflow.",
+      "tech_btn": "Let's Discuss Your Tech Stack",
+      "contact_status": "Available for New Opportunities",
+      "contact_title_1": "Let's Build",
+      "contact_title_2": "Something Great.",
+      "contact_desc": "Open for collaboration on mobile applications, clean architecture, and product-focused Flutter work."
+    },
+    "projects": [
+      {
+        "title": "ICT IPB Flutter Demo",
+        "desc": "A mobile component integration system developed for the university ICT ecosystem. Focused on high scalability and UI module efficiency.",
+        "tech": "FLUTTER / DART",
+        "icon": "fa-solid fa-shield-halved"
+      },
+      {
+        "title": "FocusFlow",
+        "desc": "A minimalist productivity management solution designed to optimize daily user workflows through an intuitive interface.",
+        "tech": "FLUTTER / DART",
+        "icon": "fa-solid fa-stopwatch-20"
+      }
+    ],
+    "skills_desc": {
+      "Flutter": "UI framework & app foundation",
+      "Dart": "Language for Flutter apps",
+      "Riverpod": "Modern state management",
+      "Firebase": "Auth, core, and backend",
+      "PowerSync": "Local-first data sync",
+      "SQLite": "Local persistence layer",
+      "GoRouter": "Typed navigation flow",
+      "HTTP": "API integration",
+      "SharedPrefs": "Lightweight settings",
+      "Equatable": "Clean value equality",
+      "Material 3": "Design system UI",
+      "Google Fonts": "Typography system"
+    }
+  },
+  "id": {
+    "nav": { "about": "Tentang", "tech": "Teknologi", "contact": "Kontak" },
+    "profile": {
+      "overview": "Ikhtisar Profil",
+      "status": "Siap Berkolaborasi",
+      "role": "Developer Flutter Spesialis",
+      "bio": "Membangun aplikasi mobile yang <span class='text-primary font-bold'>tangguh</span> dan berperforma tinggi melalui Clean Architecture dan UI/UX yang matang.",
+      "location": "Bogor, Indonesia"
+    },
+    "sections": {
+      "showcase_sub": "Portofolio",
+      "showcase_title_1": "Karya",
+      "showcase_title_2": "Terpilih.",
+      "showcase_desc": "Kumpulan kecil produk mobile yang menunjukkan cara saya berpikir tentang UI, struktur, dan penggunaan dunia nyata.",
+      "showcase_footer": "Proyek-proyek ini mewakili sebagian kecil dari karya saya. Semuanya dibangun dengan fokus pada pemeliharaan kode dan eksekusi pixel-perfect.",
+      "showcase_btn": "Lihat Semua Proyek",
+      "tech_title": "Gudang",
+      "tech_subtitle": "Teknis",
+      "tech_desc": "Library dan alat Flutter yang sering saya gunakan dalam berbagai proyek.",
+      "tech_footer": "Belajar terus-menerus adalah bagian dari DNA saya. Inilah teknologi inti yang mendukung alur kerja saya saat ini.",
+      "tech_btn": "Diskusikan Tech Stack Anda",
+      "contact_status": "Tersedia untuk Peluang Baru",
+      "contact_title_1": "Mari Bangun",
+      "contact_title_2": "Sesuatu yang Hebat.",
+      "contact_desc": "Terbuka untuk kolaborasi pada aplikasi mobile, clean architecture, dan pekerjaan Flutter yang berfokus pada produk."
+    },
+    "projects": [
+      {
+        "title": "ICT IPB Flutter Demo",
+        "desc": "Sistem integrasi komponen mobile yang dikembangkan untuk ekosistem TIK universitas. Fokus pada skalabilitas tinggi dan efisiensi modul UI.",
+        "tech": "FLUTTER / DART",
+        "icon": "fa-solid fa-shield-halved"
+      },
+      {
+        "title": "FocusFlow",
+        "desc": "Solusi manajemen produktivitas minimalis yang dirancang untuk mengoptimalkan alur kerja harian pengguna melalui antarmuka yang intuitif.",
+        "tech": "FLUTTER / DART",
+        "icon": "fa-solid fa-stopwatch-20"
+      }
+    ],
+    "skills_desc": {
+      "Flutter": "Framework UI & fondasi aplikasi",
+      "Dart": "Bahasa untuk aplikasi Flutter",
+      "Riverpod": "Manajemen state modern",
+      "Firebase": "Auth, core, dan backend",
+      "PowerSync": "Sinkronisasi data local-first",
+      "SQLite": "Layer persistensi lokal",
+      "GoRouter": "Alur navigasi bertipe",
+      "HTTP": "Integrasi API",
+      "SharedPrefs": "Pengaturan ringan",
+      "Equatable": "Persamaan nilai yang bersih",
+      "Material 3": "Sistem desain UI",
+      "Google Fonts": "Sistem tipografi"
+    }
+  }
+}

@@ -34,126 +34,149 @@
 
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-    <!-- Background effects handled with CSS -->
 </head>
 
-<body class="relative min-h-screen overflow-x-hidden bg-transparent text-base-content antialiased" x-data="{ 
+<body class="relative min-h-screen overflow-x-hidden bg-transparent text-base-content antialiased" :class="isLoading ? 'overflow-hidden' : ''" x-data="{ 
+        isLoading: true,
+        locale: localStorage.getItem('locale') || 'en',
+        t: {},
         dark:false,
         scrolled: false,
         toggleTheme(){
             this.dark = !this.dark
             document.documentElement.setAttribute('data-theme', this.dark ? 'business' : 'corporate')
         },
-
-        profile: {
-            name: 'Muhammad Firzak Rizki',
-            role: 'Specialized Flutter Developer',
-            location: 'Bogor, Indonesia',
-            bio: 'Crafting <span class=text-primary font-bold>high-performance</span> mobile applications with Clean Architecture and a focus on seamless user experiences.',
-            skills: ['FLUTTER', 'DART', 'CLEAN ARCHITECTURE', 'GIT', 'REST API', 'LINUX'],
-            github: 'https://github.com/muhammadfirzakrizki'
+        async switchLocale() {
+            this.locale = this.locale === 'en' ? 'id' : 'en';
+            localStorage.setItem('locale', this.locale);
+            this.$nextTick(() => AOS.refresh());
         },
-
-        projects: [
-            {
-                title: 'ICT IPB Flutter Demo',
-                desc: 'A mobile component integration system developed for the university ICT ecosystem. Focused on high scalability and UI module efficiency.',
-                tech: 'FLUTTER / DART',
-                link: 'https://github.com/muhammadfirzakrizki/ict-ipb-flutter-demo',
-                color: 'primary',
-                accent: '#2563eb',
-                icon: 'fa-solid fa-shield-halved'
-            },
-            {
-                title: 'FocusFlow',
-                desc: 'A minimalist productivity management solution designed to optimize daily user workflows through an intuitive interface.',
-                tech: 'FLUTTER / DART',
-                link: 'https://github.com/muhammadfirzakrizki/focusflow',
-                color: 'secondary',
-                accent: '#0f766e',
-                icon: 'fa-solid fa-stopwatch-20'
-            }
-        ],
-
         skills: [
-            {
-                name: 'Flutter',
-                desc: 'UI framework & app foundation',
-                icon: 'fa-brands fa-flutter',
-                color: '#02569B'
-            },
-            {
-                name: 'Dart',
-                desc: 'Language for Flutter apps',
-                icon: 'fa-solid fa-code', 
-                color: '#0175C2'
-            },
-            {
-                name: 'Riverpod',
-                desc: 'Modern state management',
-                icon: 'fa-solid fa-layer-group',
-                color: '#7C3AED'
-            },
-            {
-                name: 'Firebase',
-                desc: 'Auth, core, and backend',
-                icon: 'fa-solid fa-fire-flame-curved',
-                color: '#FF6F00'
-            },
-            {
-                name: 'PowerSync',
-                desc: 'Local-first data sync',
-                icon: 'fa-solid fa-database',
-                color: '#0EA5E9'
-            },
-            {
-                name: 'SQLite',
-                desc: 'Local persistence layer',
-                icon: 'fa-solid fa-table-cells',
-                color: '#64748B'
-            },
+            { name: 'Flutter', icon: 'fa-brands fa-flutter', color: '#02569B' },
+            { name: 'Dart', icon: 'fa-solid fa-code', color: '#0175C2' },
+            { name: 'Riverpod', icon: 'fa-solid fa-layer-group', color: '#7C3AED' },
+            { name: 'Firebase', icon: 'fa-solid fa-fire-flame-curved', color: '#FF6F00' },
+            { name: 'PowerSync', icon: 'fa-solid fa-database', color: '#0EA5E9' },
+            { name: 'SQLite', icon: 'fa-solid fa-table-cells', color: '#64748B' },
             {
                 name: 'GoRouter',
-                desc: 'Typed navigation flow',
                 icon: 'fa-solid fa-route',
                 color: '#2563EB'
             },
             {
                 name: 'HTTP',
-                desc: 'API integration',
                 icon: 'fa-solid fa-cloud-arrow-down',
                 color: '#14B8A6'
             },
             {
                 name: 'SharedPrefs',
-                desc: 'Lightweight settings',
                 icon: 'fa-solid fa-sliders',
                 color: '#8B5CF6'
             },
             {
                 name: 'Equatable',
-                desc: 'Clean value equality',
                 icon: 'fa-solid fa-equals',
                 color: '#0F766E'
             },
             {
                 name: 'Material 3',
-                desc: 'Design system UI',
                 icon: 'fa-solid fa-swatchbook',
                 color: '#DB2777'
             },
             {
                 name: 'Google Fonts',
-                desc: 'Typography system',
                 icon: 'fa-solid fa-font',
                 color: '#111827'
             }
         ]
     }" @scroll.window="scrolled = (window.pageYOffset > 20) ? true : false" x-init="
-        AOS.init({ duration: 650, once: true, offset: 90, easing: 'ease-out-cubic' });
+        // Fetch translations
+        fetch('translations.json')
+            .then(r => r.json())
+            .then(data => { 
+                t = data;
+                // Re-sync AOS if translations arrive after loading
+                if(!isLoading) this.$nextTick(() => AOS.refresh());
+            })
+            .catch(e => console.error('Gagal load bahasa:', e));
+
+        setTimeout(() => {
+            isLoading = false;
+            // Tunggu transisi loading selesai (700ms) baru init AOS agar elemen terdeteksi
+            setTimeout(() => {
+                AOS.init({
+                    duration: 1000,
+                    once: true,
+                    offset: 100,
+                    easing: 'ease-in-out',
+                });
+                AOS.refresh();
+            }, 800);
+        }, 2000);
     ">
 
+    <!-- Flutter-style Loading Screen -->
+    <div x-show="isLoading"
+         x-data="{ 
+            progress: 0,
+            init() {
+                let interval = setInterval(() => {
+                    if (this.progress < 100) {
+                        this.progress += Math.floor(Math.random() * 15) + 5;
+                        if (this.progress > 100) this.progress = 100;
+                    } else {
+                        clearInterval(interval);
+                    }
+                }, 100);
+            }
+         }"
+         x-transition:leave="transition ease-in-out duration-700" 
+         x-transition:leave-start="opacity-100 scale-100" 
+         x-transition:leave-end="opacity-0 scale-110"
+         class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-base-100 p-6 overflow-hidden font-sans">
+        
+        <!-- Immersive Gradient Background -->
+        <div class="absolute inset-0 bg-linear-to-b from-primary/5 to-transparent pointer-events-none"></div>
+        <div class="absolute inset-0 opacity-[0.05]" style="background-image: url('https://www.transparenttextures.com/patterns/cubes.png');"></div>
+        
+        <!-- Splash Content -->
+        <div class="relative flex flex-col items-center w-full max-w-xs">
+            
+            <!-- Icon with Float Animation -->
+            <div class="relative mb-12">
+                <div class="absolute -inset-10 bg-primary/20 blur-3xl rounded-full animate-pulse"></div>
+                <div class="relative flex items-center justify-center w-28 h-28 bg-base-100 rounded-[2.5rem] shadow-2xl border border-base-300">
+                    <i class="fa-brands fa-flutter text-6xl text-primary animate-[pulse_2s_infinite]"></i>
+
+                    <!-- Hot Reload Indicator -->
+                    <div class="absolute -top-2 -right-2 flex h-5 w-5">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-5 w-5 bg-primary border-4 border-base-100 shadow-sm"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brand Text -->
+            <div class="text-center space-y-2 mb-12">
+                <h2 class="text-xl font-bold tracking-[0.3em] text-base-content">FIRZAK<span class="text-primary">RIZKI</span></h2>
+                <p class="text-[10px] font-mono tracking-[0.4em] text-base-content/40 uppercase">Mobile Architect</p>
+            </div>
+
+            <!-- Minimalist Progress -->
+            <div class="w-48 space-y-4">
+                <div class="relative h-1 w-full bg-base-300/50 rounded-full overflow-hidden">
+                    <div class="absolute inset-y-0 left-0 bg-linear-to-r from-primary to-blue-400 transition-all duration-500 ease-out"
+                         :style="`width: ${progress}%`"
+                    ></div>
+                </div>
+                <div class="flex justify-between items-center font-mono">
+                    <span class="text-[9px] text-base-content/40 uppercase tracking-widest">Compiling...</span>
+                    <span class="text-[10px] font-bold text-primary" x-text="`${progress}%` text-right"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <div class="site-bg fixed inset-0 z-0 pointer-events-none" aria-hidden="true"></div>
     <div class="site-orb site-orb--one fixed inset-0 z-0 pointer-events-none" aria-hidden="true"></div>
     <div class="site-orb site-orb--two fixed inset-0 z-0 pointer-events-none" aria-hidden="true"></div>
@@ -180,11 +203,16 @@
 
             <div class="flex items-center gap-2 md:gap-3">
                 <ul
-                    class="hidden md:flex items-center gap-1 rounded-full border border-base-300 bg-base-100/70 p-1 shadow-sm">
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#tech" class="nav-link">Tech</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    class="hidden md:flex items-center gap-1 rounded-full border border-base-300 bg-base-100/70 p-1 shadow-sm" x-show="t[locale]">
+                    <li><a href="#about" class="nav-link" x-text="t[locale].nav.about">About</a></li>
+                    <li><a href="#tech" class="nav-link" x-text="t[locale].nav.tech">Tech</a></li>
+                    <li><a href="#contact" class="nav-link" x-text="t[locale].nav.contact">Contact</a></li>
                 </ul>
+
+                <button @click="switchLocale()"
+                    class="btn btn-ghost btn-circle border border-base-300 bg-base-100/80 shadow-sm font-mono text-[10px] font-bold">
+                    <span x-text="locale === 'en' ? 'ID' : 'EN'"></span>
+                </button>
 
                 <button @click="toggleTheme()"
                     class="nav-toggle btn btn-ghost btn-circle border border-base-300 bg-base-100/80 shadow-sm"
@@ -197,7 +225,7 @@
 
     <div id="about" class="h-24"></div>
 
-    <main class="relative z-10 max-w-7xl mx-auto px-6 py-10">
+    <main class="relative z-10 max-w-7xl mx-auto px-6 py-10" x-show="t && t[locale]">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
 
             <aside class="lg:col-span-4">
@@ -206,8 +234,7 @@
                         data-aos="zoom-in" data-aos-delay="80">
                         <div class="aside-shell__top px-8 pt-8" data-aos="fade-down" data-aos-delay="120">
                             <div
-                                class="inline-flex items-center gap-2 rounded-full border border-base-300 bg-base-200/70 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-base-content/55">
-                                <span class="h-1.5 w-1.5 rounded-full bg-primary"></span>
+                                class="inline-flex items-center gap-2 rounded-full border border-base-300 bg-base-200/70 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-base-content/55" x-text="t[locale].profile.overview">
                                 Profile Overview
                             </div>
                         </div>
@@ -224,38 +251,35 @@
                         <div class="card-body pt-10 px-10 pb-4" data-aos="fade-up" data-aos-delay="240">
                             <div class="flex items-center gap-2 mb-4 text-base-content/60">
                                 <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
-                                <span class="text-[10px] font-semibold uppercase tracking-[0.2em]">Ready to
-                                    Collaborate</span>
+                                <span class="text-[10px] font-semibold uppercase tracking-[0.2em]" x-text="t[locale].profile.status">Ready to Collaborate</span>
                             </div>
 
-                            <h1 class="text-4xl font-semibold tracking-tight leading-none mb-2 text-base-content"
-                                x-text="profile.name">
-                                Muhammad Firzak Rizki </h1>
+                            <h1 class="text-4xl font-semibold tracking-tight leading-none mb-2 text-base-content">
+                                Muhammad Firzak Rizki</h1>
                             <p class="mono text-primary text-xs font-semibold tracking-[0.2em] uppercase mb-6"
-                                x-text="profile.role"> Specialized Flutter Developer </p>
+                                x-text="t[locale].profile.role"> Specialized Flutter Developer </p>
 
-                            <p class="text-sm leading-relaxed text-base-content/70 mb-8" x-html="profile.bio">
+                            <p class="text-sm leading-relaxed text-base-content/70 mb-8" x-html="t[locale].profile.bio">
                                 Crafting <span class="text-base-content font-semibold">high-performance</span> mobile
                                 applications with Clean Architecture and a focus on seamless user experiences.
                             </p>
 
                             <div class="grid grid-cols-2 gap-3">
-                                <a :href="profile.github" target="_blank" rel="noopener"
+                                <a href="https://github.com/muhammadfirzakrizki" target="_blank" rel="noopener"
                                     class="btn btn-primary rounded-2xl shadow-none hover:shadow-sm transition-all text-white">
                                     <i class="fa-brands fa-github text-lg"></i>
                                 </a>
-                                <a href="https://linkedin.com/in/muhammadfirzakrizki" target="_blank" rel="noopener"
-                                    class="btn btn-outline rounded-2xl border-base-300 hover:bg-base-content hover:text-base-100 transition-all">
+                                <a href="https://linkedin.com/in/muhammadfirzakrizki" target="_blank" rel="noopener" class="btn btn-outline rounded-2xl border-base-300 hover:bg-base-content hover:text-base-100 transition-all">
                                     <i class="fa-brands fa-linkedin text-lg"></i>
                                 </a>
                             </div>
                         </div>
 
                         <div class="aside-shell__bottom px-8 pb-8" data-aos="fade-up" data-aos-delay="300">
-                            <div class="rounded-2xl border border-base-300 bg-base-200/50 p-3">
-                                <div class="text-[9px] font-semibold uppercase tracking-[0.22em] text-base-content/40">
+                            <div class="rounded-2xl border border-base-300 bg-base-200/50 p-3" x-show="t[locale]">
+                                <div class="text-[9px] font-semibold uppercase tracking-[0.22em] text-base-content/40" x-text="locale === 'en' ? 'Based in' : 'Berdasar di'">
                                     Based in</div>
-                                <div class="mt-1 text-sm font-semibold text-base-content" x-text="profile.location">
+                                <div class="mt-1 text-sm font-semibold text-base-content" x-text="t[locale].profile.location">
                                     Kota Bogor, Jawa Barat, Indonesia</div>
                             </div>
                         </div>
@@ -271,27 +295,25 @@
                             <div class="absolute inset-0 bg-primary opacity-100"></div>
                         </div>
 
-                        <span class="font-mono text-primary text-lg font-black tracking-[0.4em] uppercase">
+                        <span class="font-mono text-primary text-lg font-black tracking-[0.4em] uppercase" x-text="t[locale].sections.showcase_sub">
                             Showcase
                         </span>
                     </div>
                     <h2
                         class="text-5xl md:text-6xl font-semibold tracking-tight uppercase leading-none text-base-content">
-                        Selected <br>
-                        <span class="text-primary">
-                            Works.
-                        </span>
+                        <span x-text="t[locale].sections.showcase_title_1">Selected</span> <br>
+                        <span class="text-primary" x-text="t[locale].sections.showcase_title_2">Works.</span>
                     </h2>
-                    <p class="mt-4 max-w-xl text-sm leading-relaxed text-base-content/65">
+                    <p class="mt-4 max-w-xl text-sm leading-relaxed text-base-content/65" x-text="t[locale].sections.showcase_desc">
                         A small set of mobile products that show how I think about UI, structure, and real-world use.
                     </p>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-8">
-                    <template x-for="(project, index) in projects">
+                    <template x-for="(project, index) in t[locale].projects">
                         <article
                             class="project-card group relative bg-base-100 border border-base-300 shadow-sm hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 rounded-[2rem] overflow-hidden hover:-translate-y-2"
-                            :style="`--project-accent: ${project.accent}`" data-aos="fade-up"
+                            data-aos="fade-up"
                             :data-aos-delay="index * 100">
 
                             <div
@@ -309,8 +331,8 @@
                                         <span
                                             class="badge badge-primary badge-outline border-primary/20 text-[10px] font-bold px-3 py-3 uppercase tracking-widest"
                                             x-text="project.tech"></span>
-                                        <span
-                                            class="text-[10px] font-mono text-base-content/40 uppercase tracking-[0.2em]">Mobile
+                                        <span x-show="t[locale]"
+                                            class="text-[10px] font-mono text-base-content/40 uppercase tracking-[0.2em]" x-text="locale === 'en' ? 'Mobile App' : 'Aplikasi Mobile'">Mobile
                                             App</span>
                                     </div>
                                 </div>
@@ -332,13 +354,13 @@
                                     <div
                                         class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-base-content/40">
                                         <span class="h-2 w-2 rounded-full bg-primary animate-pulse"></span>
-                                        <span>Live Project</span>
+                                        <span x-text="locale === 'en' ? 'Live Project' : 'Proyek Berjalan'">Live Project</span>
                                     </div>
 
-                                    <a :href="project.link" target="_blank"
+                                    <a :href="`https://github.com/muhammadfirzakrizki/${project.title.toLowerCase().replace(/ /g, '-')}`" target="_blank"
                                         class="group/btn inline-flex items-center gap-3 px-1 py-2 font-bold uppercase tracking-[0.2em] text-primary transition-all duration-300">
                                         <span class="relative text-[11px]">
-                                            Explore Work
+                                            <span x-text="locale === 'en' ? 'Explore Work' : 'Jelajahi Karya'">Explore Work</span>
                                             <span
                                                 class="absolute -bottom-1 left-0 h-[2px] w-0 bg-primary transition-all duration-300 group-hover/btn:w-full"></span>
                                         </span>
@@ -353,18 +375,24 @@
                         </article>
                     </template>
                 </div>
+
+                <!-- Additional text below projects -->
+                <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="200">
+                    <p class="text-sm text-base-content/60 max-w-xl mx-auto" x-text="t[locale].sections.showcase_footer"></p>
+                    <a href="https://github.com/muhammadfirzakrizki?tab=repositories" target="_blank" rel="noopener" class="btn btn-ghost btn-sm mt-4 text-primary hover:bg-primary/10">
+                        <span x-text="t[locale].sections.showcase_btn">View All Projects</span> <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
             </section>
 
             <section id="tech" class="lg:col-span-12">
                 <div class="mt-20 space-y-10" data-aos="fade-up">
                     <div class="flex items-center gap-4">
-                        <h2 class="text-3xl font-semibold uppercase tracking-tight text-base-content">Technical <span
-                                class="text-primary">Arsenal</span></h2>
+                        <h2 class="text-3xl font-semibold uppercase tracking-tight text-base-content"><span x-text="t[locale].sections.tech_title">Technical</span> <span
+                                class="text-primary" x-text="t[locale].sections.tech_subtitle">Arsenal</span></h2>
                         <div class="h-[1px] flex-1 bg-base-300"></div>
                     </div>
-                    <p class="max-w-2xl text-sm leading-relaxed text-base-content/65">
-                        Flutter libraries and tooling that show up again and again in my projects.
-                    </p>
+                    <p class="max-w-2xl text-sm leading-relaxed text-base-content/65" x-text="t[locale].sections.tech_desc"></p>
 
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                         <template x-for="(skill, index) in skills">
@@ -379,11 +407,19 @@
                                         <h4 class="font-semibold text-sm tracking-tight text-base-content"
                                             x-text="skill.name">
                                         </h4>
-                                        <p class="text-[11px] text-base-content/60" x-text="skill.desc"></p>
+                                        <p class="text-[11px] text-base-content/60" x-text="t[locale].skills_desc[skill.name]"></p>
                                     </div>
                                 </div>
                             </div>
                         </template>
+                    </div>
+
+                    <!-- Additional text below technical arsenal -->
+                    <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="800">
+                        <p class="text-sm text-base-content/60 max-w-xl mx-auto" x-text="t[locale].sections.tech_footer"></p>
+                        <a href="#contact" class="btn btn-ghost btn-sm mt-4 text-primary hover:bg-primary/10">
+                            <span x-text="t[locale].sections.tech_btn">Let's Discuss Your Tech Stack</span> <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -391,23 +427,20 @@
         </div>
     </main>
 
-    <footer id="contact" class="relative z-10 mt-32 border-t border-base-300 bg-base-100/75 backdrop-blur-sm">
+    <footer id="contact" class="relative z-10 mt-32 border-t border-base-300 bg-base-100/75 backdrop-blur-sm" x-show="t[locale]">
         <div class="max-w-7xl mx-auto px-6 py-16">
             <div class="grid gap-12 lg:grid-cols-[1.3fr_0.9fr] lg:items-end">
                 <div class="space-y-6" data-aos="fade-right">
                     <div
                         class="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.28em] text-base-content/45">
                         <span class="h-1.5 w-1.5 rounded-full bg-primary"></span>
-                        Available for select projects
+                        <span x-text="t[locale].sections.contact_status">Available for select projects</span>
                     </div>
                     <h2 class="text-5xl font-semibold tracking-tight leading-none text-base-content">
-                        Let's Build <br>
-                        <span class="text-primary">Something Great.</span>
+                        <span x-text="t[locale].sections.contact_title_1">Let's Build</span> <br>
+                        <span class="text-primary" x-text="t[locale].sections.contact_title_2">Something Great.</span>
                     </h2>
-                    <p class="max-w-xl text-sm leading-relaxed text-base-content/70">
-                        Open for collaboration on mobile applications, clean architecture, and product-focused Flutter
-                        work.
-                    </p>
+                    <p class="max-w-xl text-sm leading-relaxed text-base-content/70" x-text="t[locale].sections.contact_desc"></p>
                 </div>
 
                 <div class="footer-panel rounded-3xl border border-base-300 bg-base-200/60 p-6 md:p-7 shadow-sm"
@@ -415,7 +448,7 @@
                     <div class="flex flex-col gap-5">
                         <a href="mailto:firzakrizki@gmail.com"
                             class="btn btn-primary btn-lg rounded-2xl px-8 font-semibold tracking-[0.2em] shadow-none hover:shadow-md transition-all w-full">
-                            HIRE ME <i class="fa-solid fa-paper-plane ml-2"></i>
+                            <span x-text="locale === 'en' ? 'HIRE ME' : 'HUBUNGI SAYA'">HIRE ME</span> <i class="fa-solid fa-paper-plane ml-2"></i>
                         </a>
 
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
