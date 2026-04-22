@@ -251,7 +251,7 @@
                         <div class="card-body pt-10 px-10 pb-4" data-aos="fade-up" data-aos-delay="240">
                             <div class="flex items-center gap-2 mb-4 text-base-content/60">
                                 <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
-                                <span class="text-[10px] font-semibold uppercase tracking-[0.2em]" x-text="t[locale].profile.status">Ready to Collaborate</span>
+                                <span class="text-[10px] font-semibold uppercase tracking-[0.2em] animate-pulse" x-text="t[locale].profile.status">Ready to Collaborate</span>
                             </div>
 
                             <h1 class="text-4xl font-semibold tracking-tight leading-none mb-2 text-base-content">
@@ -316,12 +316,22 @@
                             data-aos="fade-up"
                             :data-aos-delay="index * 100">
 
-                            <div
-                                class="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-primary/5 blur-[80px] transition-opacity duration-500 group-hover:opacity-100 opacity-0">
-                            </div>
+                            <div class="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-primary/5 blur-[80px] transition-opacity duration-500 group-hover:opacity-100 opacity-0"></div>
 
-                            <div class="card-body relative p-7 md:p-8 z-10 flex flex-col h-full">
-                                <div class="flex justify-between items-start mb-8">
+                            <div class="card-body relative p-7 md:p-8 z-10 flex flex-col h-full overflow-hidden">
+                                <!-- Mockup Screen Visualizer (Sekarang di background sebagai watermark) -->
+                                <div class="hidden sm:block absolute -top-6 -right-8 w-32 h-52 bg-base-300/10 rounded-[2rem] border-4 border-base-content/5 overflow-hidden rotate-[25deg] group-hover:rotate-[20deg] group-hover:-translate-y-4 transition-all duration-1000 pointer-events-none opacity-20 group-hover:opacity-40">
+                                    <div class="w-full h-2 bg-base-content/5 mb-1"></div>
+                                    <div class="px-4 space-y-2 mt-6">
+                                        <div class="h-1.5 w-full bg-primary/10 rounded-full"></div>
+                                        <div class="h-1.5 w-3/4 bg-primary/10 rounded-full"></div>
+                                        <div class="h-24 w-full bg-base-200/40 rounded-2xl mt-4 border border-dashed border-primary/10 flex items-center justify-center">
+                                            <i class="fa-brands fa-flutter text-2xl opacity-5"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex justify-between items-start mb-6 relative z-10">
                                     <div
                                         class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl transition-all duration-500 border border-base-300 bg-base-200 group-hover:bg-primary group-hover:text-primary-content group-hover:scale-110 group-hover:rotate-6 shadow-sm">
                                         <i :class="project.icon"></i>

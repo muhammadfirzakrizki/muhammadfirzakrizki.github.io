@@ -281,7 +281,24 @@ html[data-theme='business'] .nav-brand__mark {
 .project-card:hover,
 .project-card:focus-within {
     transform: translateY(-4px) scale(1.01);
-    box-shadow: 0 28px 60px rgba(15, 23, 42, 0.12);
+    box-shadow: 0 28px 60px rgba(2, 86, 155, 0.15);
+}
+
+/* Scanner Effect on Project Card */
+.project-card:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, oklch(var(--p) / 0.3), transparent);
+    animation: scan 2s linear infinite;
+}
+
+@keyframes scan {
+    0% { top: 0%; }
+    100% { top: 100%; }
 }
 
 .project-card:hover::before,
