@@ -1,6 +1,10 @@
 {
   "en": {
-    "nav": { "about": "About", "tech": "Tech", "contact": "Contact" },
+    "nav": {
+      "about": "About",
+      "tech": "Tech",
+      "contact": "Contact"
+    },
     "profile": {
       "overview": "Profile Overview",
       "status": "Ready to Collaborate",
@@ -37,6 +41,12 @@
         "desc": "A minimalist productivity management solution designed to optimize daily user workflows through an intuitive interface.",
         "tech": "FLUTTER / DART",
         "icon": "fa-solid fa-stopwatch-20"
+      },
+      {
+        "title": "SpendWise",
+        "desc": "A modern personal finance tracker that helps users manage expenses, monitor budgets, and gain real-time insights into their spending habits. Designed with a clean UI and scalable architecture.",
+        "tech": "FLUTTER / BLOC / FIREBASE",
+        "icon": "fa-solid fa-wallet"
       }
     ],
     "skills_desc": {
@@ -55,7 +65,11 @@
     }
   },
   "id": {
-    "nav": { "about": "Tentang", "tech": "Teknologi", "contact": "Kontak" },
+    "nav": {
+      "about": "Tentang",
+      "tech": "Teknologi",
+      "contact": "Kontak"
+    },
     "profile": {
       "overview": "Ikhtisar Profil",
       "status": "Siap Berkolaborasi",
@@ -92,6 +106,12 @@
         "desc": "Solusi manajemen produktivitas minimalis yang dirancang untuk mengoptimalkan alur kerja harian pengguna melalui antarmuka yang intuitif.",
         "tech": "FLUTTER / DART",
         "icon": "fa-solid fa-stopwatch-20"
+      },
+      {
+        "title": "SpendWise",
+        "desc": "Aplikasi pengelola keuangan modern untuk mencatat pengeluaran, mengatur anggaran, dan memahami pola finansial secara real-time. Dibangun dengan UI bersih dan arsitektur yang scalable.",
+        "tech": "FLUTTER / BLOC / FIREBASE",
+        "icon": "fa-solid fa-wallet"
       }
     ],
     "skills_desc": {
