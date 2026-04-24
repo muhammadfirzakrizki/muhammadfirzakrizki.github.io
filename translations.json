@@ -34,19 +34,22 @@
         "title": "ICT IPB Flutter Demo",
         "desc": "A mobile component integration system developed for the university ICT ecosystem. Focused on high scalability and UI module efficiency.",
         "tech": "FLUTTER / DART",
-        "icon": "fa-solid fa-shield-halved"
+        "icon": "fa-solid fa-shield-halved",
+        "repo": "https://github.com/muhammadfirzakrizki/ict-ipb-flutter-demo"
       },
       {
         "title": "FocusFlow",
         "desc": "A minimalist productivity management solution designed to optimize daily user workflows through an intuitive interface.",
         "tech": "FLUTTER / DART",
-        "icon": "fa-solid fa-stopwatch-20"
+        "icon": "fa-solid fa-stopwatch-20",
+        "repo": "https://github.com/muhammadfirzakrizki/focusflow-app"
       },
       {
         "title": "SpendWise",
         "desc": "A modern personal finance tracker that helps users manage expenses, monitor budgets, and gain real-time insights into their spending habits. Designed with a clean UI and scalable architecture.",
         "tech": "FLUTTER / BLOC / FIREBASE",
-        "icon": "fa-solid fa-wallet"
+        "icon": "fa-solid fa-wallet",
+        "repo": "https://github.com/muhammadfirzakrizki/spendwise-app"
       }
     ],
     "skills_desc": {
@@ -99,19 +102,22 @@
         "title": "ICT IPB Flutter Demo",
         "desc": "Sistem integrasi komponen mobile yang dikembangkan untuk ekosistem TIK universitas. Fokus pada skalabilitas tinggi dan efisiensi modul UI.",
         "tech": "FLUTTER / DART",
-        "icon": "fa-solid fa-shield-halved"
+        "icon": "fa-solid fa-shield-halved",
+        "repo": "https://github.com/muhammadfirzakrizki/ict-ipb-flutter-demo"
       },
       {
         "title": "FocusFlow",
         "desc": "Solusi manajemen produktivitas minimalis yang dirancang untuk mengoptimalkan alur kerja harian pengguna melalui antarmuka yang intuitif.",
         "tech": "FLUTTER / DART",
-        "icon": "fa-solid fa-stopwatch-20"
+        "icon": "fa-solid fa-stopwatch-20",
+        "repo": "https://github.com/muhammadfirzakrizki/focusflow-app"
       },
       {
         "title": "SpendWise",
         "desc": "Aplikasi pengelola keuangan modern untuk mencatat pengeluaran, mengatur anggaran, dan memahami pola finansial secara real-time. Dibangun dengan UI bersih dan arsitektur yang scalable.",
         "tech": "FLUTTER / BLOC / FIREBASE",
-        "icon": "fa-solid fa-wallet"
+        "icon": "fa-solid fa-wallet",
+        "repo": "https://github.com/muhammadfirzakrizki/spendwise-app"
       }
     ],
     "skills_desc": {
