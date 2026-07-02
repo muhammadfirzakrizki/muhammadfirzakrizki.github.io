@@ -79,7 +79,10 @@
       "MySQL": "Relational database systems",
       "Tailwind CSS": "Utility-first modern styling",
       "Material 3": "Design system standard",
-      "Google Fonts": "Typography system"
+      "Google Fonts": "Typography system",
+      "TanStack": "Powerful full-stack React toolkit",
+      "Bun": "Ultra-fast JS runtime & bundler",
+      "Vite": "Next-gen frontend build tool"
     }
   },
   "id": {
@@ -162,7 +165,10 @@
       "MySQL": "Sistem database relasional",
       "Tailwind CSS": "Styling modern utility-first",
       "Material 3": "Standar sistem desain",
-      "Google Fonts": "Sistem tipografi"
+      "Google Fonts": "Sistem tipografi",
+      "TanStack": "Toolkit React full-stack yang powerful",
+      "Bun": "JS runtime & bundler ultra-cepat",
+      "Vite": "Build tool frontend generasi berikutnya"
     }
   }
 }
