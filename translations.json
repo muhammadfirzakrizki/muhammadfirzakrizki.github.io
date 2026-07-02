@@ -57,6 +57,14 @@
         "tech": "PHP / LARAVEL / MYSQL",
         "icon": "fa-solid fa-server",
         "repo": "https://github.com/muhammadfirzakrizki/laravel-api"
+      },
+      {
+        "title": "FinStart Dashboard",
+        "desc": "Premium personal finance dashboard featuring real-time balance tracking, transaction management, and interactive charts built on a modern full-stack architecture.",
+        "tech": "TANSTACK START / REACT / TAILWIND",
+        "icon": "fa-solid fa-chart-line",
+        "repo": "https://github.com/muhammadfirzakrizki/fin-start",
+        "live": "https://fin-start.vercel.app"
       }
     ],
     "skills_desc": {
@@ -132,6 +140,14 @@
         "tech": "PHP / LARAVEL / MYSQL",
         "icon": "fa-solid fa-server",
         "repo": "https://github.com/muhammadfirzakrizki/laravel-api"
+      },
+      {
+        "title": "FinStart Dashboard",
+        "desc": "Dashboard keuangan pribadi premium dengan pelacakan saldo real-time, manajemen transaksi, dan grafik interaktif di atas arsitektur full-stack modern.",
+        "tech": "TANSTACK START / REACT / TAILWIND",
+        "icon": "fa-solid fa-chart-line",
+        "repo": "https://github.com/muhammadfirzakrizki/fin-start",
+        "live": "https://fin-start.vercel.app"
       }
     ],
     "skills_desc": {

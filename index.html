@@ -353,21 +353,33 @@
                                             Project</span>
                                     </div>
 
-                                    <a :href="project.repo" target="_blank"
-                                        class="group/btn inline-flex items-center gap-3 px-1 py-2 font-bold uppercase tracking-[0.2em] text-primary transition-all duration-300">
-                                        <span class="relative text-[11px]">
-                                            <span x-text="locale === 'en' ? 'Explore Work' : 'Jelajahi Karya'">Explore
-                                                Work</span>
-                                            <span
-                                                class="absolute -bottom-1 left-0 h-[2px] w-0 bg-primary transition-all duration-300 group-hover/btn:w-full"></span>
-                                        </span>
+                                    <div class="flex items-center gap-2">
+                                        <!-- Live Demo Button (only if project.live exists) -->
+                                        <a x-show="project.live" :href="project.live" target="_blank"
+                                            class="group/live inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.15em] border border-success/30 text-success hover:bg-success hover:text-success-content transition-all duration-300"
+                                            :title="locale === 'en' ? 'View Live Demo' : 'Lihat Demo Langsung'">
+                                            <i class="fa-solid fa-rocket text-[9px] group-hover/live:animate-bounce"></i>
+                                            <span x-text="locale === 'en' ? 'Demo' : 'Demo'"></span>
+                                        </a>
 
-                                        <div
-                                            class="flex h-8 w-8 items-center justify-center rounded-full border-2 border-primary transition-all duration-300 group-hover/btn:bg-primary group-hover/btn:text-primary-content">
-                                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                                        </div>
-                                    </a>
+                                        <!-- GitHub Button -->
+                                        <a :href="project.repo" target="_blank"
+                                            class="group/btn inline-flex items-center gap-3 px-1 py-2 font-bold uppercase tracking-[0.2em] text-primary transition-all duration-300">
+                                            <span class="relative text-[11px]">
+                                                <span x-text="locale === 'en' ? 'Explore Work' : 'Jelajahi Karya'">Explore
+                                                    Work</span>
+                                                <span
+                                                    class="absolute -bottom-1 left-0 h-[2px] w-0 bg-primary transition-all duration-300 group-hover/btn:w-full"></span>
+                                            </span>
+
+                                            <div
+                                                class="flex h-8 w-8 items-center justify-center rounded-full border-2 border-primary transition-all duration-300 group-hover/btn:bg-primary group-hover/btn:text-primary-content">
+                                                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                            </div>
+                                        </a>
+                                    </div>
                                 </footer>
+
                             </div>
                         </article>
                     </template>
